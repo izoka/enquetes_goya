@@ -6,6 +6,7 @@
     </id>
     <field name="titre" type="string" column="titre" length="255" nullable="false"/>
     <field name="description" type="string" column="description" length="512" nullable="true"/>
+    <field name="isactif" type="boolean" column="isActif" nullable="false"/>
     <many-to-one field="userUtilisateur" target-entity="Utilisateur">
       <join-columns>
         <join-column name="user_id_utilisateur" referenced-column-name="user_id"/>
