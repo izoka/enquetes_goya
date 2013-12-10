@@ -1,5 +1,5 @@
-enquetes_main_homepage:
-    pattern:  /hello/{name}
+enquetes_main_accueil:
+    pattern:  /
     defaults: { _controller: EnquetesMainBundle:Accueil:index }
     
 enquetes_main_utilisateur:
