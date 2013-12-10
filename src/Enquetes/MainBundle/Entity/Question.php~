@@ -1,0 +1,52 @@
+<?php
+
+namespace Enquetes\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Question
+ *
+ * @ORM\Table(name="question")
+ * @ORM\Entity
+ */
+class Question
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="question_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $questionId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=255, nullable=false)
+     */
+    private $libelle;
+
+    /**
+     * @var \TypeDeQuestion
+     *
+     * @ORM\ManyToOne(targetEntity="TypeDeQuestion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="type_id_type_de_question", referencedColumnName="type_id")
+     * })
+     */
+    private $typeTypeDeQuestion;
+
+    /**
+     * @var \Enquete
+     *
+     * @ORM\ManyToOne(targetEntity="Enquete")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="enquete_id_enquete", referencedColumnName="enquete_id")
+     * })
+     */
+    private $enqueteEnquete;
+
+
+}

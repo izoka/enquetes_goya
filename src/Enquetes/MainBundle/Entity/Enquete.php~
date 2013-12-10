@@ -1,0 +1,59 @@
+<?php
+
+namespace Enquetes\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Enquete
+ *
+ * @ORM\Table(name="enquete")
+ * @ORM\Entity
+ */
+class Enquete
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="enquete_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $enqueteId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=512, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var \Theme
+     *
+     * @ORM\ManyToOne(targetEntity="Theme")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="theme_id_theme", referencedColumnName="theme_id")
+     * })
+     */
+    private $themeTheme;
+
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id_utilisateur", referencedColumnName="user_id")
+     * })
+     */
+    private $userUtilisateur;
+
+
+}
