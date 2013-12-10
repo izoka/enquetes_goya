@@ -5,6 +5,7 @@ namespace Enquetes\MainBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Enquetes\MainBundle\Entity\Utilisateur;
 use Enquetes\MainBundle\Form\UtilisateurType;
+use Enquetes\MainBundle\Form\FormHandler;
 
 class AccueilController extends Controller
 {
@@ -22,7 +23,7 @@ class AccueilController extends Controller
                         array('id'=>$user->getId() ) ) );
         }
         
-        return $this->render('EnquetesMainBundle:Accueil:accueil.html.twig',
+        return $this->render('EnquetesMainBundle:Default:accueil.html.twig',
                 array('form'=>$form->createView()));
         
     }
