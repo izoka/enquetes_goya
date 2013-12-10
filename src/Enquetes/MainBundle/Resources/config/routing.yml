@@ -1,37 +1,37 @@
-enquetes_main_accueil:
-    pattern:  /
-    defaults: { _controller: EnquetesMainBundle:Accueil:index }
-    
-enquetes_main_utilisateur:
-    pattern:  /utilisateur/{id}
-    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
-    requirements:
-    id: \d+
+#enquetes_main_accueil:
+#    pattern:  /
+#    defaults: { _controller: EnquetesMainBundle:Accueil:index }
+#    
+#enquetes_main_utilisateur:
+#    pattern:  /utilisateur/{id}
+#    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
+#    requirements:
+#    id: \d+
 
 enquetes_main_creation:
     pattern:  /creation
     defaults: { _controller: EnquetesMainBundle:Creation:creation }
     
-enquetes_main_edition:
-    pattern:  /edition/{id}
-    defaults: { _controller: EnquetesMainBundle:Edition:edition }
-    requirements:
-      id: \d+
-      
-enquetes_main_repondre:
-    pattern:  /repondre/{id}
-    defaults: { _controller: EnquetesMainBundle:Repondre:repondre }
-    requirements:
-    id: \d+
-    
-enquetes_main_resultat:
-    pattern:  /resultat/{id}
-    defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
-    requirements:
-    id: \d+
-    
-enquetes_main_utilisateur_compte:
-    pattern:  /utilisateur_compte/{id}
-    defaults: { _controller: EnquetesMainBundle:Utilisateur_Compte:utilisateur_compte }
-    requirements:
-    id: \d+
+#enquetes_main_edition:
+#    pattern:  /edition/{id}
+#    defaults: { _controller: EnquetesMainBundle:Edition:edition }
+#    requirements:
+#      id: \d+
+#      
+#enquetes_main_repondre:
+#    pattern:  /repondre/{id}
+#    defaults: { _controller: EnquetesMainBundle:Repondre:repondre }
+#    requirements:
+#    id: \d+
+#    
+#enquetes_main_resultat:
+#    pattern:  /resultat/{id}
+#    defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
+#    requirements:
+#    id: \d+
+#    
+#enquetes_main_utilisateur_compte:
+#    pattern:  /utilisateur_compte/{id}
+#    defaults: { _controller: EnquetesMainBundle:Utilisateur_Compte:utilisateur_compte }
+#    requirements:
+#    id: \d+
