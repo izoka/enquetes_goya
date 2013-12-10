@@ -36,6 +36,13 @@ class Enquete
     private $description;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isActif", type="boolean", nullable=false)
+     */
+    private $isactif;
+
+    /**
      * @var \Theme
      *
      * @ORM\ManyToOne(targetEntity="Theme")
@@ -111,6 +118,29 @@ class Enquete
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set isactif
+     *
+     * @param boolean $isactif
+     * @return Enquete
+     */
+    public function setIsactif($isactif)
+    {
+        $this->isactif = $isactif;
+    
+        return $this;
+    }
+
+    /**
+     * Get isactif
+     *
+     * @return boolean 
+     */
+    public function getIsactif()
+    {
+        return $this->isactif;
     }
 
     /**

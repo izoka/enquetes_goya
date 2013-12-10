@@ -36,6 +36,13 @@ class Enquete
     private $description;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isActif", type="boolean", nullable=false)
+     */
+    private $isactif;
+
+    /**
      * @var \Theme
      *
      * @ORM\ManyToOne(targetEntity="Theme")
