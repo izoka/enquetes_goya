@@ -1,3 +1,17 @@
+/**
+* Ajout CSS
+*
+/*
+*/
+.container-narrow {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+#margin-form{
+    margin-bottom: 15px
+}
+
 /*!
  * Bootstrap v3.0.3 (http://getbootstrap.com)
  * Copyright 2013 Twitter, Inc.
