@@ -16,7 +16,7 @@ class EnqueteRepository extends EntityRepository
 {
     public function getAllEnquete(){
         $query = $this->getEntityManager()->createQuery(
-                'SELECT * FRM EnqueteMainBundle:Enquete e ');
+                'SELECT e,t,u FRM enquetesMainBundle:Enquetes e Join e.theme t JOIN e.utilisateur u ');
         
         return $query->getResult();
     }
