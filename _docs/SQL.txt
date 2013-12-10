@@ -1,0 +1,61 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+CREATE TABLE utilisateur(
+        user_id  int (11) Auto_increment  NOT NULL ,
+        email    Varchar (255) NOT NULL ,
+        password Varchar (128) NOT NULL ,
+        role     Varchar (50) NOT NULL ,
+        PRIMARY KEY (user_id ) ,
+        UNIQUE (email )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE enquete(
+        enquete_id          int (11) Auto_increment  NOT NULL ,
+        titre               Varchar (255) NOT NULL ,
+        description         Varchar (512) ,
+        user_id_utilisateur Int ,
+        theme_id_theme      Int NOT NULL ,
+        PRIMARY KEY (enquete_id )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE question(
+        question_id              int (11) Auto_increment  NOT NULL ,
+        libelle                  Varchar (255) NOT NULL ,
+        enquete_id_enquete       Int NOT NULL ,
+        type_id_type_de_question Int NOT NULL ,
+        PRIMARY KEY (question_id )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE type_de_question(
+        type_id int (11) Auto_increment  NOT NULL ,
+        libelle Varchar (128) NOT NULL ,
+        PRIMARY KEY (type_id )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE reponse(
+        reponse_id           int (11) Auto_increment  NOT NULL ,
+        reponse              Varchar (512) NOT NULL ,
+        uid                  Varchar (128) NOT NULL ,
+        question_id_question Int NOT NULL ,
+        PRIMARY KEY (reponse_id )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE theme(
+        theme_id int (11) Auto_increment  NOT NULL ,
+        libelle  Varchar (255) NOT NULL ,
+        PRIMARY KEY (theme_id )
+)ENGINE=InnoDB;
+
+ALTER TABLE enquete ADD CONSTRAINT FK_enquete_user_id_utilisateur FOREIGN KEY (user_id_utilisateur) REFERENCES utilisateur(user_id);
+ALTER TABLE enquete ADD CONSTRAINT FK_enquete_theme_id_theme FOREIGN KEY (theme_id_theme) REFERENCES theme(theme_id);
+ALTER TABLE question ADD CONSTRAINT FK_question_enquete_id_enquete FOREIGN KEY (enquete_id_enquete) REFERENCES enquete(enquete_id);
+ALTER TABLE question ADD CONSTRAINT FK_question_type_id_type_de_question FOREIGN KEY (type_id_type_de_question) REFERENCES type_de_question(type_id);
+ALTER TABLE reponse ADD CONSTRAINT FK_reponse_question_id_question FOREIGN KEY (question_id_question) REFERENCES question(question_id);
