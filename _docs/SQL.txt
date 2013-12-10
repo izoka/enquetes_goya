@@ -19,7 +19,8 @@ CREATE TABLE enquete(
         description         Varchar (512) ,
         user_id_utilisateur Int ,
         theme_id_theme      Int NOT NULL ,
-        PRIMARY KEY (enquete_id )
+        PRIMARY KEY (enquete_id ) ,
+        UNIQUE (titre )
 )ENGINE=InnoDB;
 
 
@@ -35,7 +36,8 @@ CREATE TABLE question(
 CREATE TABLE type_de_question(
         type_id int (11) Auto_increment  NOT NULL ,
         libelle Varchar (128) NOT NULL ,
-        PRIMARY KEY (type_id )
+        PRIMARY KEY (type_id ) ,
+        UNIQUE (libelle )
 )ENGINE=InnoDB;
 
 
@@ -51,7 +53,8 @@ CREATE TABLE reponse(
 CREATE TABLE theme(
         theme_id int (11) Auto_increment  NOT NULL ,
         libelle  Varchar (255) NOT NULL ,
-        PRIMARY KEY (theme_id )
+        PRIMARY KEY (theme_id ) ,
+        UNIQUE (libelle )
 )ENGINE=InnoDB;
 
 ALTER TABLE enquete ADD CONSTRAINT FK_enquete_user_id_utilisateur FOREIGN KEY (user_id_utilisateur) REFERENCES utilisateur(user_id);
