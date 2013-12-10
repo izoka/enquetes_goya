@@ -1,0 +1,5 @@
+php app/console doctrine:mapping:convert xml ./src/Enquetes/MainBundle/Resources/config/doctrine/metadata/orm --from-database --force
+
+php app/console doctrine:mapping:import EnquetesMainBundle annotation
+
+php app/console doctrine:generate:entities EnquetesMainBundle
