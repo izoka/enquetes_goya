@@ -17,6 +17,7 @@ CREATE TABLE enquete(
         enquete_id          int (11) Auto_increment  NOT NULL ,
         titre               Varchar (255) NOT NULL ,
         description         Varchar (512) ,
+        isActif             Bool NOT NULL ,
         user_id_utilisateur Int ,
         theme_id_theme      Int NOT NULL ,
         PRIMARY KEY (enquete_id ) ,
