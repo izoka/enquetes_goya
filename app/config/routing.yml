@@ -1,0 +1,4 @@
+enquetes_main:
+    resource: "@EnquetesMainBundle/Resources/config/routing.yml"
+    prefix:   /
+

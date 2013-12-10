@@ -1,0 +1,3 @@
+enquetes_main_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EnquetesMainBundle:Default:index }
