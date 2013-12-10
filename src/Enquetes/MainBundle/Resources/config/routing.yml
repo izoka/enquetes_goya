@@ -1,7 +1,7 @@
-#enquetes_main_accueil:
-#    pattern:  /
-#    defaults: { _controller: EnquetesMainBundle:Accueil:index }
-#    
+enquetes_main_accueil:
+    pattern:  /
+    defaults: { _controller: EnquetesMainBundle:Accueil:index }
+    
 #enquetes_main_utilisateur:
 #    pattern:  /utilisateur/{id}
 #    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }

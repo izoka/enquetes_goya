@@ -3,7 +3,8 @@
 namespace Enquetes\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Enquetes\MainBundle\Entity\Utilisateur;
+use Enquetes\MainBundle\Form\UtilisateurType;
 
 class AccueilController extends Controller
 {
