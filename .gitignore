@@ -4,3 +4,6 @@ vendor/*
 */cache/*
 web/uploads/*
 web/bundles/*
+
+# NetBeans
+nbproject/*
