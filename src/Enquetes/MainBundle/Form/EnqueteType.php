@@ -5,6 +5,7 @@ namespace Enquetes\MainBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Enquetes\MainBundle\Form\QuestionType;
 
 class EnqueteType extends AbstractType
 {
@@ -19,6 +20,7 @@ class EnqueteType extends AbstractType
             ->add('description')
             ->add('themeTheme')
             ->add('userUtilisateur')
+
         ;
     }
     
