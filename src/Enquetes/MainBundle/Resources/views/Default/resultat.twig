@@ -1,0 +1,9 @@
+{%extends "EnquetesMainBundle::layout.html.twig"%}
+
+{%block enquetes_n3 %}<div class="well">
+  <form method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+   
+  </form>
+</div>
+{%endblock%}
