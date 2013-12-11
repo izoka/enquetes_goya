@@ -3,10 +3,9 @@ enquetes_main_accueil:
     defaults: { _controller: EnquetesMainBundle:Accueil:index }
     
 enquetes_main_utilisateur:
-    pattern:  /utilisateur/{id}
+    pattern:  /utilisateur
     defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
-    requirements:
-      id: \d+
+
     
 enquetes_main_creation:
     pattern:  /creation
@@ -22,11 +21,19 @@ enquetes_main_resultat:
     pattern:  /resultat
     defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
   
+
 enquetes_main_ajout_question:
     pattern:  /ajout/{form}
     defaults: { _controller: EnquetesMainBundle:Creation:ajout }
     requirements:
       form: \d+ 
+
+enquetes_main_suppresion:
+    pattern:  /suppression/{id}
+    defaults: { _controller: EnquetesMainBundle:Suppresion:suppression }
+    requirements:
+      id: \d+
+
     
 #enquetes_main_edition:
 #    pattern:  /edition/{id}
