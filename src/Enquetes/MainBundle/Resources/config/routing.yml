@@ -14,7 +14,7 @@ enquetes_main_creation:
 
 enquetes_main_resultat:
     pattern:  /resultat
-    defaults: { _controller: EnquetesMainBundle:Resultats:resultats }
+    defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
   
     
 #enquetes_main_edition:
