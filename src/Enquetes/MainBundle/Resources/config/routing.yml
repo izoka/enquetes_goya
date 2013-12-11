@@ -21,6 +21,11 @@ enquetes_main_resultat:
     pattern:  /resultat
     defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
   
+enquetes_main_suppresion:
+    pattern:  /suppression/{id}
+    defaults: { _controller: EnquetesMainBundle:Suppresion:suppression }
+    requirements:
+      id: \d+
     
 #enquetes_main_edition:
 #    pattern:  /edition/{id}

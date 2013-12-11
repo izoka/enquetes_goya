@@ -8,93 +8,118 @@
 {%endfor%}#}
 
 
-  <div class="bs-example">
-      <nav role="navigation" class="navbar navbar-default">
-        
-        <div class="bs-example">
-      <div class="btn-group">
-        
-        <div class="btn-group">
-          <button data-toggle="dropdown" class="btn btn-default dropdown-toggle btn btn-primary" type="button" id="btnGroupDrop1">
-              
-              <a href="#" class="navbar-brand" style="color: #FFF;">Votre compte</a>
-            <span class="caret"></span>
-            
-          </button>
-          <ul aria-labelledby="btnGroupDrop1" role="menu" class="dropdown-menu">
-            <li><a href="#">Modifier</a></li>
-            <li><a href="#">Supprimer</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<div class="bs-example">
+    <nav role="navigation" class="navbar navbar-default">
 
-      </nav>
-    </div>
-    
-    <div class="bs-example">
-      <div class="panel panel-default">
+        <div class="bs-example">
+            <div class="btn-group">
+
+                <div class="btn-group">
+                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle btn btn-primary" type="button" id="btnGroupDrop1">
+
+                        <a href="#" class="navbar-brand" style="color: #FFF;">Votre compte</a>
+                        <span class="caret"></span>
+
+                    </button>
+                    <ul aria-labelledby="btnGroupDrop1" role="menu" class="dropdown-menu">
+                        <li><a href="#">Modifier</a></li>
+                        <li><a href="#">Supprimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+</div>
+{%for FlashMessage in app.session.flashbag.get('success')%}
+<div class="alert alert-success">
+    <p>{{FlashMessage}}</p>
+</div>
+{%endfor%}
+<div class="bs-example">
+    <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading">
-            
+
             <div class="row show-grid">
                 <div class="col-md-6">
                     <h3 style="margin-top:3px;">Liste des enquêtes</h3>
                 </div>   
                 <div class="col-md-3"></div>
-            
-            
-            <div class="btn-group col-md-2">
-                
-                
+
+
+                <div class="btn-group col-md-2">
+
+
                     <button data-toggle="dropdown" type="button" class="btn btn-default btn-sm dropdown-toggle">
-                      Trier par thème <span class="caret"></span>
+                        Trier par thème <span class="caret"></span>
                     </button>
                     <ul role="menu" class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li><a href="#">Separated link</a></li>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
                     </ul>
-                
+
+                </div>
             </div>
-            </div>
-            
+
         </div>
-            
+
 
         <!-- Table -->
         <table class="table">
-          <thead>
-            <tr>
-              <th>Titre</th>
-              <th>Résumé</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Résumé</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
           {%for enquete in enquetes%}
-            <tr>
-              <td valign="middle"><strong>{{enquete.titre}}</strong></td>
-              <td>{{enquete.description}}</td>
-              <td>
-                  
-                  <div class="bs-example">
-                    <div style="margin: 9px 0 5px;" class="btn-group btn-group-xs">
-                      <button class="btn btn-default" type="button">Voir</button>
-                      <button class="btn btn-default" type="button">Modifier</button>
-                      <button class="btn btn-default" type="button">Supprimer</button>
-                    </div>
-                  </div>
-                  
-              </td>
-            </tr>
+                <tr>
+                    <td valign="middle"><strong>{{enquete.titre}}</strong></td>
+                    <td>{{enquete.description}}</td>
+                    <td>
+
+                        <div class="bs-example">
+                            <div style="margin: 9px 0 5px;" class="btn-group btn-group-xs">
+                                <button class="btn btn-default" type="button">Voir</button>
+                                <button class="btn btn-default" type="button">Modifier</button>
+                                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#{{enquete.enqueteId}}">
+                                        Désactiver</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="{{enquete.enqueteId}}" tabindex="-1" role="dialog" aria-labelledby="{{enquete.enqueteId}}Label" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="{{enquete.enqueteId}}Label">Désactiver</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                Etes vous certain de vouloir désactiver l'enquete<br>
+                                                {{enquete.titre}}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                                <a href="{{path('enquetes_main_suppresion',{'id':enquete.enqueteId})}}" class="btn btn-primary">Confirmer</a>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
             {%endfor%}
-          </tbody>
+            </tbody>
         </table>
-      </div>
     </div>
-   <button class="btn btn-primary offset1 span8 pull-right"><a href="#" style="color:#FFF" class="active">Ajouter une enquête</a></button>
+</div>
+<button class="btn btn-primary offset1 span8 pull-right"><a href="#" style="color:#FFF" class="active">Ajouter une enquête</a></button>
+
+
 
 {%endblock%}
-  
