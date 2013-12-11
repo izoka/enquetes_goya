@@ -19,6 +19,9 @@ class UtilisateurType extends AbstractType
 //            ->add('password')
 //        ;
         $builder
+            ->add('username','text',
+                    array('attr'=>array('class'=>'form-control',
+                            'placeholder'=>'Entrer pseudo')))
             ->add('email','email',
                     array('attr'=>array('class'=>'form-control',
                             'placeholder'=>'Entrer email')))
