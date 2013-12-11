@@ -7,21 +7,32 @@ use Enquetes\MainBundle\Entity\Theme;
 
 
 
-class UtilisateurController {
+class UtilisateurController extends Controller {
     
-   /**
-   * @Secure(roles="ROLE_USER")
-   */
-    public function utilisateur(Theme $id){
+
+    public function utilisateurAction($id){
+        //verifie si connecté
+     if ($this->get('security.context')->isGranted('ROLE_USER')) {
+         //récupère l'identifiant de l'utilisateur
+         $security = $this->get('security.context');
+         $token = $security->getToken();
+         $user = $token->getUser();
+         $id_user = $user->getUserId();
+         
+         // appel au repository affichage enquete par utilisateur
         $em = $this->getDoctrine()->getManager();
         $enquete = $em->getRepository('EnquetesMainBundle:Enquete')
-                ->getEnqueteByUser($id);
+                ->getEnqueteByUser($id_user);
         
-        return $this->render('EnquetesMainBundle:default:utilisateur.html.twig',
-                array('Enquetes'=>$enquete, 'theme'=>$id));
+        return $this->render('EnquetesMainBundle:Default:utilisateur.html.twig');
+    }
+    else
+    {
+       return $this->redirect ($this->generateUrl('enquetes_main_accueil'));
+    }
     }
     
-    
+
     
     
 }
