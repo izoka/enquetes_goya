@@ -23,7 +23,7 @@ class Question
 
     /**
      * @var string
-     *
+     * 
      * @ORM\Column(name="libelle", type="string", length=255, nullable=false)
      */
     private $libelle;
