@@ -18,9 +18,11 @@ class EnqueteType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('themeTheme')
-            ->add('userUtilisateur')
-
+            ->add('themeTheme','entity',
+                   array('label'=>"test",
+                         'class'=>'Enquetes\MainBundle\Entity\Theme',
+                         'property'=>'displayTheme',
+                         'attr'=>array('class'=>'form-control')));
         ;
     }
     
