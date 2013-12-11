@@ -15,7 +15,7 @@ class AccueilController extends Controller
 
         
     // Si le visiteur est déjà identifié, on le redirige vers l'accueil
-    if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+    if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
       return $this->redirect($this->generateUrl('enquetes_main_creation'));
     }
 
@@ -39,8 +39,7 @@ class AccueilController extends Controller
         
         if($formHandler->process()){
              return $this->redirect
-                ($this->generateUrl('enquetes_main_accueil',
-                        array('id'=>$user->getId() ) ) );
+                ($this->generateUrl('enquetes_main_accueil') );
         }
     
         

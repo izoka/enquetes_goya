@@ -58,7 +58,8 @@ class Utilisateur implements UserInterface, \Serializable
     private $username;
     
  public function __construct() {
-     $this->salt = md5(uniqid(null, true));
+     $this->salt = "";
+     $this->roles = "ROLE_USER";
  }
  
  
@@ -104,8 +105,7 @@ class Utilisateur implements UserInterface, \Serializable
      */
     public function setPassword($password)
     {
-        $this->password = $password;
-    
+        $this->password = sha1($password);
         return $this;
     }
 
