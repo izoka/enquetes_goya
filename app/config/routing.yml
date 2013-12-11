@@ -2,8 +2,8 @@ enquetes_main:
     resource: "@EnquetesMainBundle/Resources/config/routing.yml"
     prefix:   /
 login:
-    pattern:   /login
-    defaults:  { _controller: EnquetesMainBundle:Security:login }
+    pattern:   /
+    defaults:  { _controller: EnquetesMainBundle:Accueil:index }
 login_check:
     pattern:   /login_check
 logout:
