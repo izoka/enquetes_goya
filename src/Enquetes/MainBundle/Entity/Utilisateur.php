@@ -3,6 +3,7 @@
 namespace Enquetes\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Utilisateur
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur implements UserInterface, \Serializable
 {
     /**
      * @var integer
@@ -63,9 +64,10 @@ class Utilisateur
      */
     private $role;
 
- public function __construct($email) {
-     $this->email = $email;
+ public function __construct() {
+     $this->salt = md5(uniqid(null, true));
  }
+ 
 
     /**
      * Get userId
@@ -123,28 +125,7 @@ class Utilisateur
         return $this->password;
     }
 
-    /**
-     * Set role
-     *
-     * @param string $role
-     * @return Utilisateur
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-    
-        return $this;
-    }
 
-    /**
-     * Get role
-     *
-     * @return string 
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 
     /**
      * Set roles
@@ -164,9 +145,9 @@ class Utilisateur
      *
      * @return string 
      */
-    public function getRoles()
+  public function getRoles()
     {
-        return $this->roles;
+        return array('ROLE_USER');
     }
 
     /**
@@ -213,5 +194,31 @@ class Utilisateur
     public function getUsername()
     {
         return $this->username;
+    }
+     /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /**
+     * @see \Serializable::serialize()
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->userId,
+        ));
+    }
+
+    /**
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->userId,
+        ) = unserialize($serialized);
     }
 }
