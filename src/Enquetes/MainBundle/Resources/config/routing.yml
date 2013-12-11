@@ -2,12 +2,12 @@ enquetes_main_accueil:
     pattern:  /
     defaults: { _controller: EnquetesMainBundle:Accueil:index }
     
-#enquetes_main_utilisateur:
-#    pattern:  /utilisateur/{id}
-#    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
-#    requirements:
-#    id: \d+
-
+enquetes_main_utilisateur:
+    pattern:  /utilisateur/{id}
+    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
+    requirements:
+    id: \d+
+    
 enquetes_main_creation:
     pattern:  /creation
     defaults: { _controller: EnquetesMainBundle:Creation:creation }
