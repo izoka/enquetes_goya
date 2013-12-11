@@ -62,7 +62,8 @@ class Theme
     {
         return $this->libelle;
     }
-        public function getDisplayTheme(){
+    
+    public function getDisplayTheme(){
          return $this->libelle;
     }
 }

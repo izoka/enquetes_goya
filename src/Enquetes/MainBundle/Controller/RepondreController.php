@@ -7,11 +7,11 @@ use Enquetes\MainBundle\Entity\Enquete;
 use Enquetes\MainBundle\Form\EnqueteType;
 use Enquetes\MainBundle\Form\FormHandler;
 
-class CreationController extends Controller
+class RepondreController extends Controller
 {
 
     
-    public function repondreAction(Enquete $id)
+    public function repondreAction($id)
     {
 
         $enquete = $this->getDoctrine()->getManager()
