@@ -1,13 +1,17 @@
 <?php
 
+namespace Enquetes\MainBundle\Controller;
 
-/**
- * Description of byThemeController
- *
- * @author stagiaire
- */
-class utilisateurController {
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Enquetes\MainBundle\Entity\Theme;
+
+
+
+class UtilisateurController {
     
+   /**
+   * @Secure(roles="ROLE_USER")
+   */
     public function viewByUserAction(Theme $id){
         $em = $this->getDoctrine()->getManager();
         $enquete = $em->getRepository('EnquetesMainBundle:Enquete')
