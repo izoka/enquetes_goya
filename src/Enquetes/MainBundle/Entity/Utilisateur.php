@@ -3,6 +3,8 @@
 namespace Enquetes\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * Utilisateur
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur implements UserInterface
 {
     /**
      * @var integer
@@ -43,6 +45,15 @@ class Utilisateur
     private $role;
 
 
+    public function __construct()
+  {
+    $this->role = array();
+  }
+
+  
+    public function getUsername() {
+         $this->username = $email;
+    }
 
     /**
      * Get userId
@@ -122,4 +133,8 @@ class Utilisateur
     {
         return $this->role;
     }
+    
+      public function eraseCredentials()  {
+          
+      }
 }
