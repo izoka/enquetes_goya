@@ -57,13 +57,6 @@ class Utilisateur implements UserInterface, \Serializable
      */
     private $username;
     
-        /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=50, nullable=true)
-     */
-    private $role;
-
  public function __construct() {
      $this->salt = md5(uniqid(null, true));
  }
