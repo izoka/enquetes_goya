@@ -3,8 +3,6 @@
 namespace Enquetes\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-
 
 /**
  * Utilisateur
@@ -12,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur implements UserInterface
+class Utilisateur
 {
     /**
      * @var integer
@@ -33,27 +31,41 @@ class Utilisateur implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=128, nullable=false)
+     * @ORM\Column(name="password", type="string", length=128, nullable=true)
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="role", type="string", length=50, nullable=false)
+     * @ORM\Column(name="roles", type="string", length=50, nullable=true)
+     */
+    private $roles;
+    
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     */
+    private $salt;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255, nullable=true)
+     */
+    private $username;
+    
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=50, nullable=true)
      */
     private $role;
 
-
-    public function __construct()
-  {
-    $this->role = array();
-  }
-
-  
-    public function getUsername() {
-         $this->username = $email;
-    }
+ public function __construct($email) {
+     $this->email = $email;
+ }
 
     /**
      * Get userId
@@ -133,8 +145,73 @@ class Utilisateur implements UserInterface
     {
         return $this->role;
     }
+
+    /**
+     * Set roles
+     *
+     * @param string $roles
+     * @return Utilisateur
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     
-      public function eraseCredentials()  {
-          
-      }
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return string 
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return Utilisateur
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+    
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string 
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return Utilisateur
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
 }
