@@ -62,13 +62,24 @@ class Enquete
      */
     private $userUtilisateur;
 
+    private $question;
+    
     
     function __construct($userUtilisateur) {
         $this->userUtilisateur = $userUtilisateur;
         $this->isactif = true;
     }
 
+    public function getQuestion() {
+        return $this->question;
+    }
 
+    public function setQuestion($question) {
+        $this->question = $question;
+    }
+
+        
+    
     /**
      * Get enqueteId
      *

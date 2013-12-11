@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Enquete
  *
  * @ORM\Table(name="enquete")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\EnqueteRepository")
  */
 class Enquete
 {
@@ -62,5 +62,144 @@ class Enquete
      */
     private $userUtilisateur;
 
+    private $question;
+    
+    
+    function __construct($userUtilisateur) {
+        $this->userUtilisateur = $userUtilisateur;
+        $this->isactif = true;
+    }
 
+
+    
+    
+    /**
+     * Get enqueteId
+     *
+     * @return integer 
+     */
+    public function getEnqueteId()
+    {
+        return $this->enqueteId;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     * @return Enquete
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string 
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Enquete
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set isactif
+     *
+     * @param boolean $isactif
+     * @return Enquete
+     */
+    public function setIsactif($isactif)
+    {
+        $this->isactif = $isactif;
+    
+        return $this;
+    }
+
+    /**
+     * Get isactif
+     *
+     * @return boolean 
+     */
+    public function getIsactif()
+    {
+        return $this->isactif;
+    }
+
+    /**
+     * Set themeTheme
+     *
+     * @param \Enquetes\MainBundle\Entity\Theme $themeTheme
+     * @return Enquete
+     */
+    public function setThemeTheme(\Enquetes\MainBundle\Entity\Theme $themeTheme = null)
+    {
+        $this->themeTheme = $themeTheme;
+    
+        return $this;
+    }
+
+    /**
+     * Get themeTheme
+     *
+     * @return \Enquetes\MainBundle\Entity\Theme 
+     */
+    public function getThemeTheme()
+    {
+        return $this->themeTheme;
+    }
+
+    /**
+     * Set userUtilisateur
+     *
+     * @param \Enquetes\MainBundle\Entity\Utilisateur $userUtilisateur
+     * @return Enquete
+     */
+    public function setUserUtilisateur(\Enquetes\MainBundle\Entity\Utilisateur $userUtilisateur = null)
+    {
+        $this->userUtilisateur = $userUtilisateur;
+    
+        return $this;
+    }
+
+    /**
+     * Get userUtilisateur
+     *
+     * @return \Enquetes\MainBundle\Entity\Utilisateur 
+     */
+    public function getUserUtilisateur()
+    {
+        return $this->userUtilisateur;
+    }
+    
+    public function __toString() {
+       return $this->getTitre();
+    }
+    
 }

@@ -19,45 +19,63 @@ class CreationController extends Controller
 //        var_dump($id_user);
         
         $enquete = new Enquete($user);
+
 //        $enquete->setIsactif(true);
         $form = $this->createForm(new EnqueteType(), $enquete);
+
         $em = $this->getDoctrine()->getManager();
         
         $formHandler = new FormHandler($form,$this->get('request'),$em);
+
         
         if($formHandler->process()){
-             return $this->redirect
-                ($this->generateUrl('enquetes_main_creation_step2',
-                        array('id'=>$enquete->getEnqueteId() ) ) );
+//             return $this->redirect
+//                ($this->generateUrl('enquetes_main_creation_step2',
+//                        array('id'=>$enquete->getEnqueteId() ) ) );
         }
         
         return $this->render('EnquetesMainBundle:Default:creation.html.twig',
                 array('form'=>$form->createView()));
 }
-
-    public function etape2Action($id)
-    {
-        
-//        $user = $this->get('security.context')->getToken()->getUser();
-        $enquete = $this->getDoctrine()->getManager()
-                                        ->getRepository("EnquetesMainBundle:Enquete")
-                                        ->find($id);
-        
-        $question = new Question($id);
-        $form = $this->createForm(new QuestionType(), $question);
-        $em = $this->getDoctrine()->getManager();
-        
-        $formHandler = new FormHandler($form,$this->get('request'),$em);
-        
-        if($formHandler->process()){
-             return $this->redirect
-                ($this->generateUrl('enquetes_main_creation_step3',
-                        array('id'=>$enquete->getEnqueteId()) ) );
-        }
-        
-        return $this->render('EnquetesMainBundle:Default:creation.html.twig',
-                array('form'=>$form->createView(), 'enquete'=>$enquete ));
-        
-    }
-
+//
+//    public function etape2Action($id)
+//    {
+//        
+////        $user = $this->get('security.context')->getToken()->getUser();
+//        $enquete = $this->getDoctrine()->getManager()
+//                                        ->getRepository("EnquetesMainBundle:Enquete")
+//                                        ->find($id);
+//        
+//        $question = new Question($id);
+//        $form = $this->createForm(new QuestionType(), $question);
+//        $em = $this->getDoctrine()->getManager();
+//        
+//        $formHandler = new FormHandler($form,$this->get('request'),$em);
+//        
+//        if($formHandler->process()){
+//             return $this->redirect
+//                ($this->generateUrl('enquetes_main_creation_step3',
+//                        array('id'=>$enquete->getEnqueteId()) ) );
+//        }
+//        
+//        return $this->render('EnquetesMainBundle:Default:creation.html.twig',
+//                array('form'=>$form->createView(), 'enquete'=>$enquete ));
+//        
+//    }
+//    
+//    public function ajoutAction(){
+//        $request = $this->getRequest();
+//        
+//         if($request->isXmlHttpRequest()){
+//             
+//             echo "OK";
+//             
+////            $subscriber = new EventSubscriber($builder->getFormFactory());
+////            $builder->addEventSubscriber($subscriber);
+//
+////            $builder->add('eventType', 'entity', array('class' => 'Bundle:EventType', 'property' => 'eventName', 'required' => true));
+//        } 
+//    }
+    
+    
 }

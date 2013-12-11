@@ -22,6 +22,11 @@ enquetes_main_resultat:
     pattern:  /resultat
     defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
   
+enquetes_main_ajout_question:
+    pattern:  /ajout/{form}
+    defaults: { _controller: EnquetesMainBundle:Creation:ajout }
+    requirements:
+      form: \d+ 
     
 #enquetes_main_edition:
 #    pattern:  /edition/{id}

@@ -48,10 +48,11 @@ class Question
      */
     private $enqueteEnquete;
 
-
     
-    function __construct($enqueteEnquete) {
-        $this->enqueteEnquete = $enqueteEnquete;
+  
+    
+    function __construct() {
+        $this->enqueteEnquete = $this->setEnqueteEnquete();
     }
     
 

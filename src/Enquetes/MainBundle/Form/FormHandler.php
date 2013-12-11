@@ -21,6 +21,9 @@ class FormHandler {
         if($this->request->getMethod()=="POST") {
             $this->form->bind($this->request);
            if($this->form->isValid()) {
+               
+               var_dump($this->form->getData());
+               
                 $this->onSuccess($this->form->getData());
                 return true;
             }

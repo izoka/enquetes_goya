@@ -23,7 +23,7 @@ class Question
 
     /**
      * @var string
-     *
+     * 
      * @ORM\Column(name="libelle", type="string", length=255, nullable=false)
      */
     private $libelle;
@@ -48,5 +48,92 @@ class Question
      */
     private $enqueteEnquete;
 
+    
+    
+    private $question;
 
+    
+    function __construct($enqueteEnquete) {
+        $this->enqueteEnquete = $enqueteEnquete;
+    }
+    
+
+    /**
+     * Get questionId
+     *
+     * @return integer 
+     */
+    public function getQuestionId()
+    {
+        return $this->questionId;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return Question
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+    
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * Set typeTypeDeQuestion
+     *
+     * @param \Enquetes\MainBundle\Entity\TypeDeQuestion $typeTypeDeQuestion
+     * @return Question
+     */
+    public function setTypeTypeDeQuestion(\Enquetes\MainBundle\Entity\TypeDeQuestion $typeTypeDeQuestion = null)
+    {
+        $this->typeTypeDeQuestion = $typeTypeDeQuestion;
+    
+        return $this;
+    }
+
+    /**
+     * Get typeTypeDeQuestion
+     *
+     * @return \Enquetes\MainBundle\Entity\TypeDeQuestion 
+     */
+    public function getTypeTypeDeQuestion()
+    {
+        return $this->typeTypeDeQuestion;
+    }
+
+    /**
+     * Set enqueteEnquete
+     *
+     * @param \Enquetes\MainBundle\Entity\Enquete $enqueteEnquete
+     * @return Question
+     */
+    public function setEnqueteEnquete(\Enquetes\MainBundle\Entity\Enquete $enqueteEnquete = null)
+    {
+        $this->enqueteEnquete = $enqueteEnquete;
+    
+        return $this;
+    }
+
+    /**
+     * Get enqueteEnquete
+     *
+     * @return \Enquetes\MainBundle\Entity\Enquete 
+     */
+    public function getEnqueteEnquete()
+    {
+        return $this->enqueteEnquete;
+    }
 }

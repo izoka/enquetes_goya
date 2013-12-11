@@ -23,22 +23,16 @@ class QuestionType extends AbstractType
                                         array('label'=>"Type de question",
                                               'class'=>'Enquetes\MainBundle\Entity\TypeDeQuestion',
                                               'property'=>'displayType',
-                                              'attr'=>array('class'=>'form-control')))
-              
-                
-                
-//            ->add('typeTypeDeQuestion',        new TypeDeQuestionType()) // Rajoutez cette ligne               
-                
-//            ->add('typeTypeDeQuestion', 'choice', array(
-//                'choices' => array(
-//                    'm' => 'Masculin',
-//                    'f' => 'Féminin'
-//                ),
-//                'required'    => false,
-//                'empty_value' => 'Type de question'
-////                'empty_data'  => null
-//            ))
+                                              'attr'=>array('class'=>'form-control'),
+                                              'expanded' => true, 
+                                              'multiple' => false     
+                                                  ))
+        
+//           ->add('typeTypeDeQuestion', 'collection', array('type'         => new TypeDeQuestionType(),
+//                                              'allow_add'    => true,
+//                                              'allow_delete' => true))        
         ;
+        
     }
     
     /**
