@@ -33,7 +33,7 @@ class EnqueteRepository extends EntityRepository
         
         
          $query = $this->getEntityManager()->createQuery(
-                'SELECT e,t FROM EnquetesMainBundle:Enquete e Join e.themeTheme t');
+                'SELECT e,t FROM EnquetesMainBundle:Enquete e Join e.themeTheme t WHERE e.isactif=true');
         
         return $query->getResult();
     }
