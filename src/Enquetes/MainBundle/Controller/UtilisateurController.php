@@ -12,7 +12,7 @@ class UtilisateurController {
    /**
    * @Secure(roles="ROLE_USER")
    */
-    public function viewByUserAction(Theme $id){
+    public function utilisateur(Theme $id){
         $em = $this->getDoctrine()->getManager();
         $enquete = $em->getRepository('EnquetesMainBundle:Enquete')
                 ->getEnqueteByUser($id);

@@ -6,7 +6,7 @@ enquetes_main_utilisateur:
     pattern:  /utilisateur/{id}
     defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
     requirements:
-    id: \d+
+      id: \d+
     
 enquetes_main_creation:
     pattern:  /creation
