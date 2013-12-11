@@ -15,13 +15,29 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('libelle')
+            ->add('libelle', 'text',
+                    array('label'=>"Libellé",
+                          'attr'=>array('class'=>'form-control')))
+                
             ->add('typeTypeDeQuestion','entity',
                                         array('label'=>"Type de question",
                                               'class'=>'Enquetes\MainBundle\Entity\TypeDeQuestion',
                                               'property'=>'displayType',
                                               'attr'=>array('class'=>'form-control')))
-            ->add('enqueteEnquete')
+              
+                
+                
+//            ->add('typeTypeDeQuestion',        new TypeDeQuestionType()) // Rajoutez cette ligne               
+                
+//            ->add('typeTypeDeQuestion', 'choice', array(
+//                'choices' => array(
+//                    'm' => 'Masculin',
+//                    'f' => 'Féminin'
+//                ),
+//                'required'    => false,
+//                'empty_value' => 'Type de question'
+////                'empty_data'  => null
+//            ))
         ;
     }
     

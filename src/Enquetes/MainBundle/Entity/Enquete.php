@@ -193,4 +193,9 @@ class Enquete
     {
         return $this->userUtilisateur;
     }
+    
+    public function __toString() {
+       return $this->getTitre();
+    }
+    
 }

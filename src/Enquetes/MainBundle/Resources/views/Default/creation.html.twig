@@ -3,8 +3,9 @@
 
 {%block enquetes_n3 %}
 
-    <h1>Enquête</h1>
-    
+{%if enquete is defined %}
+<h1>{{enquete.titre}}</h1>
+{%endif%}
 
 <div class="well">
     

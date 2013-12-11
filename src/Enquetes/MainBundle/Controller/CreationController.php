@@ -39,8 +39,9 @@ class CreationController extends Controller
     {
         
 //        $user = $this->get('security.context')->getToken()->getUser();
-        
-        
+        $enquete = $this->getDoctrine()->getManager()
+                                        ->getRepository("EnquetesMainBundle:Enquete")
+                                        ->find($id);
         
         $question = new Question($id);
         $form = $this->createForm(new QuestionType(), $question);
@@ -51,11 +52,11 @@ class CreationController extends Controller
         if($formHandler->process()){
              return $this->redirect
                 ($this->generateUrl('enquetes_main_creation_step3',
-                        array('id'=>$enquete->getEnqueteId() ) ) );
+                        array('id'=>$enquete->getEnqueteId()) ) );
         }
         
         return $this->render('EnquetesMainBundle:Default:creation.html.twig',
-                array('form'=>$form->createView()));
+                array('form'=>$form->createView(), 'enquete'=>$enquete ));
         
     }
 
