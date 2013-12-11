@@ -2,18 +2,12 @@
 
 {%block enquetes_n3 %}
 
-{%for enquete in Enquetes%}
-  <div class="col-lg-4">
-     <div class="thumbnail">
-        <p><strong>{{enquete.titre}}</strong></p>
-        <p>{{enquete.theme.libelle}}</p>
-     </div>
-    </div>
-  </div>
-{%endfor%}
+{#{%for enquete in Enquetes%}
+    <p><strong>{{enquete.titre}}</strong></p>
+    <p>{{enquete.themeTheme.libelle}}</p>
+{%endfor%}#}
 
-{%endblock%}
-  
+
   <div class="bs-example">
       <nav role="navigation" class="navbar navbar-default">
         
@@ -79,9 +73,10 @@
             </tr>
           </thead>
           <tbody>
+          {%for enquete in enquetes%}
             <tr>
-              <td valign="middle">Le Lorem Ipsum</td>
-              <td>est simplement du faux texte employé dans la composition et la mise en page avant impression.</td>
+              <td valign="middle"><strong>{{enquete.titre}}</strong></td>
+              <td>{{enquete.description}}</td>
               <td>
                   
                   <div class="bs-example">
@@ -94,32 +89,12 @@
                   
               </td>
             </tr>
-            <tr>
-              <td>Le Lorem Ipsum</td>
-              <td>est simplement du faux texte employé dans la composition et la mise en page avant impression.</td>
-              <td>
-                  
-                  <div style="margin: 9px 0 5px;" class="btn-group btn-group-xs">
-                      <button class="btn btn-default" type="button">Voir</button>
-                      <button class="btn btn-default" type="button">Modifier</button>
-                      <button class="btn btn-default" type="button">Supprimer</button>
-                    </div>
-                  
-              </td>
-            </tr>
-            <tr>
-              <td>Le Lorem Ipsum</td>
-              <td>est simplement du faux texte employé dans la composition et la mise en page avant impression.</td>
-              <td>
-                  <div style="margin: 9px 0 5px;" class="btn-group btn-group-xs">
-                      <button class="btn btn-default" type="button">Voir</button>
-                      <button class="btn btn-default" type="button">Modifier</button>
-                      <button class="btn btn-default" type="button">Supprimer</button>
-                    </div>
-              </td>
-            </tr>
+            {%endfor%}
           </tbody>
         </table>
       </div>
     </div>
    <button class="btn btn-primary offset1 span8 pull-right"><a href="#" style="color:#FFF" class="active">Ajouter une enquête</a></button>
+
+{%endblock%}
+  

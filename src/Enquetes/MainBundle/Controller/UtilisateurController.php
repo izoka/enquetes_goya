@@ -10,7 +10,7 @@ use Enquetes\MainBundle\Entity\Theme;
 class UtilisateurController extends Controller {
     
 
-    public function utilisateurAction($id){
+    public function utilisateurAction(){
         //verifie si connecté
      if ($this->get('security.context')->isGranted('ROLE_USER')) {
          //récupère l'identifiant de l'utilisateur
@@ -24,7 +24,8 @@ class UtilisateurController extends Controller {
         $enquete = $em->getRepository('EnquetesMainBundle:Enquete')
                 ->getEnqueteByUser($id_user);
         
-        return $this->render('EnquetesMainBundle:Default:utilisateur.html.twig');
+        return $this->render('EnquetesMainBundle:Default:utilisateur.html.twig',
+                array('enquetes'=>$enquete));
     }
     else
     {
