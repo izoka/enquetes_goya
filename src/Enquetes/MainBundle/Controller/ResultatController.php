@@ -1,13 +1,12 @@
 <?php
 namespace Enquetes\MainBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 class ResultatsController extends Controller
 {
-
-    
-    public function resultat()
-            
-            
+     public function resultatAction()
+           
     {
         $form = $this->createForm(new ResultatType());
         $em = $this->getDoctrine()->getManager();
@@ -21,15 +20,5 @@ class ResultatsController extends Controller
         
           return $this->render('EnqueteMainBundle:Default:resultat.html.twig',
                 array('form'=>$form->createView()));
-        
-         
-     
-        
-        
-        
- 
-
-
-
 }
 }
