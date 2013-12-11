@@ -61,7 +61,9 @@ class Enquete
      * })
      */
     private $userUtilisateur;
-
+/**
+ * @ORM\OneToMany(targetEntity="Question",mappedBy="enqueteEnquete", cascade={"persist", "remove"})
+ */
     private $question;
     
     
@@ -209,4 +211,27 @@ class Enquete
        return $this->getTitre();
     }
     
+
+    /**
+     * Add question
+     *
+     * @param \Enquetes\MainBundle\Entity\Question $question
+     * @return Enquete
+     */
+    public function addQuestion(\Enquetes\MainBundle\Entity\Question $question)
+    {
+        $this->question[] = $question;
+    
+        return $this;
+    }
+
+    /**
+     * Remove question
+     *
+     * @param \Enquetes\MainBundle\Entity\Question $question
+     */
+    public function removeQuestion(\Enquetes\MainBundle\Entity\Question $question)
+    {
+        $this->question->removeElement($question);
+    }
 }

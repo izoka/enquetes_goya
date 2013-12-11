@@ -43,7 +43,7 @@ class Question
      *
      * @ORM\ManyToOne(targetEntity="Enquete")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="enquete_id_enquete", referencedColumnName="enquete_id")
+     * @ORM\JoinColumn(name="enquete_id_enquete", referencedColumnName="enquete_id")
      * })
      */
     private $enqueteEnquete;
@@ -52,7 +52,7 @@ class Question
   
     
     function __construct() {
-        $this->enqueteEnquete = $this->setEnqueteEnquete();
+       
     }
     
 
