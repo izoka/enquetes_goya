@@ -16,14 +16,22 @@ class SuppresionController extends Controller {
                 ->getRepository("EnquetesMainBundle:Enquete")
                 ->find($id);    
                
+         $security = $this->get('security.context');
+         $token = $security->getToken();
+         $user = $token->getUser();
+         $id_user = $user->getUserId();
+               
+   
+        if($id_user === $enquete->getUserUtilisateur()->getUserId())     
+        { 
         $em = $this->getDoctrine()->getManager();      
         $enquete->SetIsactif(false);
         $em->persist($enquete);
        
         $em->flush();
         $this->get('session')->getFlashBag()
-             ->add('success','l\'enquete a bien été désactivé');
-        
+             ->add('success','l\'enquete a bien été supprimer');
+        }
                  
         return $this->redirect ($this->generateUrl('enquetes_main_utilisateur'));
         
