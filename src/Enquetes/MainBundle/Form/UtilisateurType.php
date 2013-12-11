@@ -14,10 +14,19 @@ class UtilisateurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+//        $builder
+//            ->add('email')
+//            ->add('password')
+//        ;
         $builder
-            ->add('email')
-            ->add('password')
-        ;
+            ->add('email','email',
+                    array('attr'=>array('class'=>'form-control',
+                            'placeholder'=>'Entrer email')))
+             ->add('password','password',
+                    array('attr'=>array('class'=>'form-control',
+                            'placeholder'=>'Password')));
+           
+       
     }
     
     /**
