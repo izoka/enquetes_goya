@@ -21,23 +21,13 @@ class EnqueteRepository extends EntityRepository
         return $query->getResult();
     }
     
-    public function getEnqueteByTheme($theme){
-        $query = $this->createQueryBuilder('e')
-                ->where('e.theme = :theme')
-                ->join('e.theme', 't')
-                ->setParameter('theme', $theme)
-                ->addSelect('t')
-                ;
-        
-        return $query->getQuery()->getResult();
-    }
-    
     public function getEnqueteByUser($user){
         $query = $this->createQueryBuilder('e')
                 ->where('e.utilisateur = :user')
                 ->join('e.utilisateur', 'u')
+                ->join('e.theme', 't')
                 ->setParameter('user', $user)
-                ->addSelect('u')
+                ->addSelect('u', 't')
                 ;
         
         return $query->getQuery()->getResult();

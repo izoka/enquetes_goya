@@ -1,5 +1,15 @@
 {%extends "EnquetesMainBundle::layout.html.twig"%}
 
 {%block enquetes_n3 %}
-CONTENU
+
+{%for enquete in Enquetes%}
+  <div class="col-lg-4">
+     <div class="thumbnail">
+        <p><strong>{{enquete.titre}}</strong></p>
+        <p>{{enquete.theme.libelle}}</p>
+     </div>
+    </div>
+  </div>
+{%endfor%}
+
 {%endblock%}
