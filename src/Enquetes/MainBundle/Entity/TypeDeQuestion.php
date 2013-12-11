@@ -62,4 +62,13 @@ class TypeDeQuestion
     {
         return $this->libelle;
     }
+    /**
+     * Get libelle
+     *
+     * @return string 
+     */
+    public function getDisplayType()
+    {
+        return $this->libelle;
+    }
 }

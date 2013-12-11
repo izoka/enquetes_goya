@@ -16,7 +16,11 @@ class QuestionType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('typeTypeDeQuestion')
+            ->add('typeTypeDeQuestion','entity',
+                                        array('label'=>"Type de question",
+                                              'class'=>'Enquetes\MainBundle\Entity\TypeDeQuestion',
+                                              'property'=>'displayType',
+                                              'attr'=>array('class'=>'form-control')))
             ->add('enqueteEnquete')
         ;
     }

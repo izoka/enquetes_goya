@@ -49,6 +49,11 @@ class Question
     private $enqueteEnquete;
 
 
+    
+    function __construct($enqueteEnquete) {
+        $this->enqueteEnquete = $enqueteEnquete;
+    }
+    
 
     /**
      * Get questionId

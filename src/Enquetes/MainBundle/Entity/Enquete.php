@@ -62,6 +62,11 @@ class Enquete
      */
     private $userUtilisateur;
 
+    
+    function __construct($userUtilisateur) {
+        $this->userUtilisateur = $userUtilisateur;
+        $this->isactif = true;
+    }
 
 
     /**

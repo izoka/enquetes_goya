@@ -5,7 +5,7 @@ namespace Enquetes\MainBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Enquetes\MainBundle\Form\QuestionType;
+//use Enquetes\MainBundle\Form\QuestionType;
 
 class EnqueteType extends AbstractType
 {
@@ -16,14 +16,17 @@ class EnqueteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('description')
-            ->add('themeTheme','entity',
-                   array('label'=>"test",
+      ->add('titre', 'text',
+                    array('label'=>"Libellé",
+                          'attr'=>array('class'=>'form-control')))
+      ->add('description','textarea',
+                    array('label'=>"Description",
+                          'attr'=>array('class'=>'form-control')))             
+      ->add('themeTheme','entity',
+                   array('label'=>"Thème",
                          'class'=>'Enquetes\MainBundle\Entity\Theme',
                          'property'=>'displayTheme',
                          'attr'=>array('class'=>'form-control')));
-        ;
     }
     
     /**

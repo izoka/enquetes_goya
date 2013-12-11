@@ -11,7 +11,13 @@ enquetes_main_utilisateur:
 enquetes_main_creation:
     pattern:  /creation
     defaults: { _controller: EnquetesMainBundle:Creation:creation }
-
+    
+enquetes_main_creation_step2:
+    pattern:  /creation/{id}/etape2/
+    defaults: { _controller: EnquetesMainBundle:Creation:etape2 }
+    requirements:
+      id: \d+
+    
 enquetes_main_resultat:
     pattern:  /resultat
     defaults: { _controller: EnquetesMainBundle:Resultat:resultat }
