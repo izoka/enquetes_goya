@@ -12,15 +12,4 @@ use Doctrine\ORM\EntityRepository;
 class UtilisateurRepository extends EntityRepository
 {
     
-       
-    public function getUser($email){
-        $query = $this->createQueryBuilder('u')
-                ->where('u.email = :email')
-                ->setParameter('email', $email)
-                ->addSelect('t')
-                ;
-        
-        return $query->getQuery()->getResult();
-    }
-    
 }
