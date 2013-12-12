@@ -3,10 +3,18 @@
 
 
 {%block enquetes_n3 %}
-<select>
+<select id="s_liste_enquete">
    {%for enquete in enquetes%}
                     <option value ={{enquete.enqueteId}}>{{enquete.titre}}</option>
-     {%endfor%}  
+   {%endfor%}  
 </select>
-
+<script type="text/javascript">
+                         $("#s_liste_enquete").change(function() {
+                          //  On recupère en 1er l'identifiant de la ligne selectionnée
+                            var $id =this.selectedIndex.valueOf();
+                            // On recupere la value correspondant à cet identifiant
+                            $Enq_id= this.options[$id].value; 
+                            alert($Enq_id);
+                           });
+ </script>                        
 {%endblock%}
