@@ -16,7 +16,7 @@ class RepondreController extends Controller
 {
 
     
-    public function repondreAction(Question $id)
+    public function repondreAction(Enquete $id)
     { 
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
             

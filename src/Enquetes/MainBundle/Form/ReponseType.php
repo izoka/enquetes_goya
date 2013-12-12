@@ -16,8 +16,6 @@ class ReponseType extends AbstractType
     {
         $builder
             ->add('reponse')
-            ->add('uid')
-            ->add('questionQuestion')
         ;
     }
     
