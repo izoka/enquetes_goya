@@ -16,5 +16,19 @@
                             $Enq_id= this.options[$id].value; 
                             alert($Enq_id);
                            });
+    var DATA = 'Enq_id=' +  $Enq_id;  
+    $.ajax({
+        type: "POST",
+        url: "{{ path('myapp_acteur_rechercher')}}",
+        data: DATA,
+        cache: false,
+        success: function(data){
+           $('#resultats_recherche').html(data);
+           $(".loading").hide();
+        }
+    });    
+    
+               
+                           
  </script>                        
 {%endblock%}
