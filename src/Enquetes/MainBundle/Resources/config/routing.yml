@@ -41,11 +41,11 @@ enquetes_main_suppresion:
 #    requirements:
 #      id: \d+
 #      
-#enquetes_main_repondre:
-#    pattern:  /repondre/{id}
-#    defaults: { _controller: EnquetesMainBundle:Repondre:repondre }
-#    requirements:
-#    id: \d+
+enquetes_main_repondre:
+    pattern:  /repondre/{id}
+    defaults: { _controller: EnquetesMainBundle:Repondre:repondre }
+    requirements:
+       id: \d+
     
 
 #    

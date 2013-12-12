@@ -34,6 +34,6 @@ class RepondreController extends Controller
         }
         
         
-        return $this->render('EnqueteMainBundle:Default:repondre.html.twig', array('enquete'=>$enquete, 'form'=>$form->createView()));
+        return $this->render('EnquetesMainBundle:Default:repondre.html.twig', array('enquete'=>$enquete, 'form'=>$form->createView()));
     }
 }
