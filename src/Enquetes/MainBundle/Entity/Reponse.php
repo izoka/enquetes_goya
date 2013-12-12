@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Reponse
  *
  * @ORM\Table(name="reponse")
+ * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\ReponseRepository")
  * @ORM\Entity
  */
 class Reponse
@@ -38,13 +39,14 @@ class Reponse
     /**
      * @var \Question
      *
-     * @ORM\ManyToOne(targetEntity="Question")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponse" )
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="question_id_question", referencedColumnName="question_id")
      * })
      */
     private $questionQuestion;
 
+  
 
 
     /**

@@ -3,32 +3,24 @@
 
 
 {%block enquetes_n3 %}
-<select id="s_liste_enquete">
+
+
+ 
+
+
    {%for enquete in enquetes%}
-                    <option value ={{enquete.enqueteId}}>{{enquete.titre}}</option>
-   {%endfor%}  
-</select>
-<script type="text/javascript">
-                         $("#s_liste_enquete").change(function() {
-                          //  On recupère en 1er l'identifiant de la ligne selectionnée
+      </a>   <a href="{{path('enquetes_main_rechercherRep',{'id':enquete.enqueteid} )}}">  {{enquete.titre}} </a><br/>
+               {%endfor%}  
+ <script type="text/javascript">
+       $("#form1").submit(function(){   
+          
+                    
+                          //  On recupère en 1er l identifiant de la ligne selectionnée
                             var $id =this.selectedIndex.valueOf();
                             // On recupere la value correspondant à cet identifiant
-                            $Enq_id= this.options[$id].value; 
-                            alert($Enq_id);
-                           });
-    var DATA = 'Enq_id=' +  $Enq_id;  
-    $.ajax({
-        type: "POST",
-        url: "{{ path('myapp_acteur_rechercher')}}",
-        data: DATA,
-        cache: false,
-        success: function(data){
-           $('#resultats_recherche').html(data);
-           $(".loading").hide();
-        }
-    });    
-    
-               
-                           
+                             var $Enq_id= this.options[$id].value;
+       });
+
+                          
  </script>                        
 {%endblock%}

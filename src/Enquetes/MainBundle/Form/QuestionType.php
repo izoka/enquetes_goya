@@ -27,7 +27,7 @@ class QuestionType extends AbstractType
                                               'expanded' => true, 
                                               'multiple' => false     
                                                   ))
-        
+            ->add('reponse',  new reponseType())
 //           ->add('typeTypeDeQuestion', 'collection', array('type'         => new TypeDeQuestionType(),
 //                                              'allow_add'    => true,
 //                                              'allow_delete' => true))        

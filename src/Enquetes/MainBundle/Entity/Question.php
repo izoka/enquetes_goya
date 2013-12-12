@@ -14,7 +14,6 @@ class Question
 {
     /**
      * @var integer
-     *
      * @ORM\Column(name="question_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -49,10 +48,15 @@ class Question
     private $enqueteEnquete;
 
     
-  
+    /**
+ * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestion", cascade={"persist", "remove"})
+ */
+    protected $reponse;
+    
+            
     
     function __construct() {
-       
+ 
     }
     
 
@@ -133,5 +137,41 @@ class Question
     public function getEnqueteEnquete()
     {
         return $this->enqueteEnquete;
+    }
+    public function __toString() {
+       return $this->libelle;
+    }
+
+    /**
+     * Add reponse
+     *
+     * @param \Enquetes\MainBundle\Entity\Reponse $reponse
+     * @return Question
+     */
+    public function addReponse(\Enquetes\MainBundle\Entity\Reponse $reponse)
+    {
+        $this->reponse[] = $reponse;
+    
+        return $this;
+    }
+
+    /**
+     * Remove reponse
+     *
+     * @param \Enquetes\MainBundle\Entity\Reponse $reponse
+     */
+    public function removeReponse(\Enquetes\MainBundle\Entity\Reponse $reponse)
+    {
+        $this->reponse->removeElement($reponse);
+    }
+
+    /**
+     * Get reponse
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getReponse()
+    {
+        return $this->reponse;
     }
 }

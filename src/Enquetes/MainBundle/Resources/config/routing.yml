@@ -35,10 +35,10 @@ enquetes_main_suppresion:
       id: \d+
       
 enquetes_main_rechercherRep:
-  pattern: /resultat/rechercherRep
-  defaults: { _controller: EnqueteMainBundle:resultat:rechercher }
-  requirements:
-    _method: POST
+    pattern: /finalresult/{$id}
+    defaults: { _controller: EnquetesMainBundle:Resultat:rechercherRep }
+ 
+  
     
 #enquetes_main_edition:
 #    pattern:  /edition/{id}
