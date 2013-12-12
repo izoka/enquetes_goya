@@ -39,13 +39,14 @@ class Reponse
     /**
      * @var \Question
      *
-     * @ORM\ManyToOne(targetEntity="Question")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="reponse" )
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="question_id_question", referencedColumnName="question_id")
      * })
      */
     private $questionQuestion;
 
+  
 
 
     /**

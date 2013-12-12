@@ -3,8 +3,12 @@
 namespace Enquetes\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Enquetes\MainBundle\Entity\QuestionReponse;
+use Enquetes\MainBundle\Entity\Question;
 use Enquetes\MainBundle\Entity\Enquete;
+use Enquetes\MainBundle\Form\QuestionReponseType;
 use Enquetes\MainBundle\Form\EnqueteType;
+use Enquetes\MainBundle\Form\QuestionType;
 use Enquetes\MainBundle\Form\FormHandler;
 use Enquetes\MainBundle\Entity\QuestionRepository;
 
@@ -12,18 +16,19 @@ class RepondreController extends Controller
 {
 
     
-    public function repondreAction($id)
+    public function repondreAction(Question $id)
     { 
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            
         $enquete = $this->getDoctrine()->getManager()
         ->getRepository("EnquetesMainBundle:Enquete")
         ->find($id);
         
-        $question = $this->getDoctrine()->getManager()
-                ->getRepository("EnquetesMainBundle:Question")
-                ->getAllQuestion($id);
+ 
+  
         
-        $form = $this->createForm(new EnqueteType(), $enquete);
+      
+        $form = $this->createForm(new EnqueteType(), $enquete);  
         $em = $this->getDoctrine()->getManager();
         $formHandler = new FormHandler($form,$this->get('request'),$em);
 

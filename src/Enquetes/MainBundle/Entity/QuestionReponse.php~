@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="question")
  * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\QuestionRepository")
  */
-class Question
+class QuestionReponse
 {
     /**
      * @var integer
@@ -47,13 +47,12 @@ class Question
      */
     private $enqueteEnquete;
 
-    
     /**
- * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestion", cascade={"persist", "remove"})
+ * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestione", cascade={"persist", "remove"})
  */
     protected $reponse;
-    
             
+  
     
     function __construct() {
  

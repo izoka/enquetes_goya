@@ -14,7 +14,6 @@ class TypeDeQuestion
 {
     /**
      * @var integer
-     *
      * @ORM\Column(name="type_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -23,11 +22,10 @@ class TypeDeQuestion
 
     /**
      * @var string
-     *
      * @ORM\Column(name="libelle", type="string", length=128, nullable=false)
      */
     private $libelle;
-
+    
 
 
     /**

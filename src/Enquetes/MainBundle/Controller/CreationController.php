@@ -18,7 +18,7 @@ class CreationController extends Controller
 //        $id_user = $user->getUserId();
 //        var_dump($id_user);
         
-        $enquete = new Enquete($user);
+        var_dump($enquete = new Enquete($user));
 
 //        $enquete->setIsactif(true);
         $form = $this->createForm(new EnqueteType(), $enquete);
