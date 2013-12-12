@@ -6,7 +6,31 @@
 {%if enquete is defined %}
 <h1>{{enquete.titre}}</h1>
 {%endif%}
+<div class="bs-example">
+      <nav role="navigation" class="navbar navbar-default">
+        
+        <div class="bs-example">
+      <div class="btn-group">
+        
+        <div class="btn-group">
+          <button data-toggle="dropdown" class="btn btn-default dropdown-toggle btn btn-primary" type="button" id="btnGroupDrop1">
+              
+              <a href="#" class="navbar-brand" style="color: #FFF;">Votre compte</a>
+            <span class="caret"></span>
+            
+          </button>
+          <ul aria-labelledby="btnGroupDrop1" role="menu" class="dropdown-menu">
+            <li><a href="#">Modifier</a></li>
+            <li><a href="#">Supprimer</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+      </nav>
+        <h2>Créez votre enquête</h2>
+        <hr/>
+    </div> 
 <div class="well">
 
   <form method="post" {{ form_enctype(form) }}>
@@ -27,9 +51,26 @@
 $(document).ready(function() {
   // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
   var $container = $('div#enquetes_mainbundle_enquete_question');
+  
+  // Ajout de la classe .form-group row aux div enfants direct de #enquetes_mainbundle_enquete
+  var $contentElements = $('div#enquetes_mainbundle_enquete > div');
+  $($contentElements).addClass('form-group row');
+  
+  //Ajout de la classe des labels
+  var $labelElements = $('div#enquetes_mainbundle_enquete > div > label');
+  $($labelElements).addClass('col-sm-2 control-label');
+  
+  //Ajout de la div .form-group puis déplacement des input dans cette div
+  $('<div />').attr({class:"col-xs-5"}).appendTo('.form-group');
+  var $divBrotherInput = $('div#enquetes_mainbundle_enquete > div > input').siblings('div');
+  var $divBrotherTextarea = $('div#enquetes_mainbundle_enquete > div > textarea').siblings('div');
+  var $divBrotherSelect = $('div#enquetes_mainbundle_enquete > div > select').siblings('div');
+  $("div#enquetes_mainbundle_enquete > div > textarea").appendTo($divBrotherTextarea);
+  $("div#enquetes_mainbundle_enquete > div > input").appendTo($divBrotherInput);
+  $("div#enquetes_mainbundle_enquete > div > select").appendTo($divBrotherSelect);
 
   // On ajoute un lien pour ajouter une nouvelle catégorie
-  var $lienAjout = $('<a href="#" id="ajout_categorie" class="btn">Ajouter une question</a>');
+  var $lienAjout = $('<a href="#" id="ajout_categorie" class="btn">[+] Ajouter une question</a>');
   $container.append($lienAjout);
 
   // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
