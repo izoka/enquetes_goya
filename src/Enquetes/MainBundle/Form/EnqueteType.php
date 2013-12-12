@@ -29,7 +29,9 @@ class EnqueteType extends AbstractType
                    array('label'=>"Thème",
                          'class'=>'Enquetes\MainBundle\Entity\Theme',
                          'property'=>'displayTheme',
-                         'attr'=>array('class'=>'form-control')));
+                         'attr'=>array('class'=>'form-control')))
+      ->add('Next', 'submit',
+                    array('attr'=>array('class'=>'btn btn-primary')));
                 
       $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
           $form = $event->getForm();
