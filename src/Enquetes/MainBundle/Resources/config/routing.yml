@@ -33,7 +33,12 @@ enquetes_main_suppresion:
     defaults: { _controller: EnquetesMainBundle:Suppresion:suppression }
     requirements:
       id: \d+
-
+      
+enquetes_main_rechercherRep:
+  pattern: /resultat/rechercherRep
+  defaults: { _controller: EnqueteMainBundle:resultat:rechercher }
+  requirements:
+    _method: POST
     
 #enquetes_main_edition:
 #    pattern:  /edition/{id}
