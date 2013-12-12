@@ -13,7 +13,8 @@ class RepondreController extends Controller
 
     
     public function repondreAction($id)
-    {
+    { 
+        if ($this->get('security.context')->isGranted('ROLE_USER')) {
         $enquete = $this->getDoctrine()->getManager()
         ->getRepository("EnquetesMainBundle:Enquete")
         ->find($id);
@@ -36,4 +37,5 @@ class RepondreController extends Controller
         
         return $this->render('EnquetesMainBundle:Default:repondre.html.twig', array('enquete'=>$enquete, 'form'=>$form->createView()));
     }
+  }
 }

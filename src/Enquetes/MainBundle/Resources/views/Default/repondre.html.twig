@@ -3,4 +3,16 @@
 
 {%block enquetes_n3 %}
 
+{%if enquete is defined %}
+<h1>{{enquete.titre}}</h1>
+<h3>{{enquete.description}}</h3>
+<h6>Theme :{{enquete.themeTheme.libelle}}</h6>
+{%endif%}
+
+
+
+
+
+
+
 {%endblock%}
