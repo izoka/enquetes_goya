@@ -5,6 +5,7 @@ namespace Enquetes\MainBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Enquetes\MainBundle\Form\ReponseType;
 
 class QuestionType extends AbstractType
 {
@@ -27,7 +28,11 @@ class QuestionType extends AbstractType
                                               'expanded' => true, 
                                               'multiple' => false     
                                                   ))
-            ->add('reponse',  new reponseType())
+            ->add('reponse','entity',
+                                        array('label'=>"Reponse",
+                                              'class'=>'Enquetes\MainBundle\Entity\Reponse',
+                                              'attr'=>array('class'=>'form-control'),
+                                                  ))
 //           ->add('typeTypeDeQuestion', 'collection', array('type'         => new TypeDeQuestionType(),
 //                                              'allow_add'    => true,
 //                                              'allow_delete' => true))        
