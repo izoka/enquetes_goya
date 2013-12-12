@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Reponse
  *
  * @ORM\Table(name="reponse")
+ * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\ReponseRepository")
  * @ORM\Entity
  */
 class Reponse

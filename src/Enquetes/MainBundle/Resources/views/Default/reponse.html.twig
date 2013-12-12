@@ -1,0 +1,10 @@
+{%extends "EnquetesMainBundle::layout.html.twig"%}
+
+
+{%block enquetes_n3 %}
+
+ {%for reponse in reponses%}
+                    {{reponse.reponse}}
+   {%endfor%}  
+                    
+{%endblock%}                    
