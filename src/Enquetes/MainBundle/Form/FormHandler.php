@@ -63,7 +63,7 @@ class FormHandler {
         $enquete->setTitre($obj->getTitre());
         $enquete->setThemeTheme($obj->getThemeTheme());
         $this->em->persist($enquete);
-        $this->em->flush();
+        
         
         $questionList = $obj->getQuestion();
         foreach ($questionList as $questionRow){
@@ -72,8 +72,8 @@ class FormHandler {
             $question->setEnqueteEnquete($enquete);
             $question->setTypeTypeDeQuestion($questionRow->getTypeTypeDeQuestion());
             $this->em->persist($question);
-            $this->em->flush();
-        }
+            
+        } $this->em->flush();
     }
         
         public function process3(){

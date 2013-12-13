@@ -101,7 +101,33 @@ class CreationController extends Controller {
              
          }
     
-    
+         public function supCompteAction() {
+                      if ($this->get('security.context')->isGranted('ROLE_USER')) {
+         //récupère l'identifiant de l'utilisateur
+         $security = $this->get('security.context');
+         $token = $security->getToken();
+         var_dump($user = $token->getUser());
+         $id_user = $user->getUserId();
+         
+         
+         $this->get('session')->set('user', null);
+        
+         // appel au repository affichage enquete par utilisateur
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('EnquetesMainBundle:Utilisateur')
+        ->find($id_user);
+         
+         $em->remove($user);
+         $em->flush();
+        
+         return $this->redirect ($this->generateUrl('enquetes_main_accueil'));
+                 }
+    else
+    {
+       return $this->redirect ($this->generateUrl('enquetes_main_accueil'));
+    }
+         }
+   
     
 
 //

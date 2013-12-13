@@ -56,7 +56,7 @@ class Enquete
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="enquete",  cascade={"persist"} )
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id_utilisateur", referencedColumnName="user_id")
      * })

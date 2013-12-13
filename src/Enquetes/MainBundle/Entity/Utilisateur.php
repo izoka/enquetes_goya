@@ -52,10 +52,14 @@ class Utilisateur implements UserInterface, \Serializable
     
      /**
      * @var string
-     *
      * @ORM\Column(name="username", type="string", length=255, nullable=true)
      */
     private $username;
+    
+    /**
+ * @ORM\OneToMany(targetEntity="Enquete",mappedBy="userUtilisateur", cascade={"persist", "remove"})
+ */
+    private $enquete;
     
  public function __construct() {
      $this->salt = "";
