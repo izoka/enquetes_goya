@@ -28,8 +28,8 @@ class QuestionType extends AbstractType
                                               'expanded' => true, 
                                               'multiple' => false     
                                                   ))
-           ->add('reponse','text', array('label'=>"Type de question",
-                                         'required'=>false, )) 
+//           ->add('reponse','text', array('label'=>"Type de question",
+//                                         'required'=>false, )) 
                             
 //           ->add('typeTypeDeQuestion', 'collection', array('type'         => new TypeDeQuestionType(),
 //                                              'allow_add'    => true,

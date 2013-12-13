@@ -144,7 +144,7 @@ public $reponse;
      */
     public function __construct()
     {
-        $this->reponse = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
     
     /**

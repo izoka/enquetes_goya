@@ -35,8 +35,8 @@
 
   <form method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-      {#<br/>
-    <input type="submit" class="btn btn-primary" />#}
+      <br/>
+    <input type="submit" class="btn btn-primary" />
   </form>
 </div>
 
@@ -94,9 +94,8 @@ $(document).ready(function() {
   }
   
   
-  /* - - - - - - - - - - - - - Provisoirement en commentaire- - - - - - - - - -   */
-  // La fonction qui ajoute un formulaire Categorie
-  {#function ajouterCategorie($container) {
+
+  {function ajouterCategorie($container) {
     // Dans le contenu de l'attribut « data-prototype », on remplace :
     // - le texte "__name__label__" qu'il contient par le label du champ
     // - le texte "__name__" qu'il contient par le numéro du champ
@@ -111,7 +110,7 @@ $(document).ready(function() {
 
     // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
     index++;
-  }#}
+  }}
 
   // La fonction qui ajoute un lien de suppression d'une catégorie
   function ajouterLienSuppression($prototype) {
