@@ -16,11 +16,15 @@ class ReponseRepository extends EntityRepository
 {
   
   
-     public function findByd($id){
+     public function findByquestionQuestion($id){
         $query = $this->getEntityManager()->createQuery(
-                'SELECT e FROM EnquetesMainBundle:Reponse e ');
-        return $query->getResult();
+                'SELECT r,t FROM EnquetesMainBundle:Reponse r Join r.questionQuestion r WHERE r.enqueteEnquete = :id')->setParameter('id', $id);
+        
+         
+                return $query->getResult();
     }
+    
+
     
 }
 

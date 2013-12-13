@@ -35,10 +35,14 @@ enquetes_main_suppresion:
       id: \d+
       
 enquetes_main_rechercherRep:
-    pattern: /finalresult/{$id}
+    pattern: /finalresult/{id}
     defaults: { _controller: EnquetesMainBundle:Resultat:rechercherRep }
- 
-  
+    requirements:
+      id: \d+
+
+enquetes_main_menu:
+    pattern: /menu
+    defaults: { _controller: EnquetesMainBundle:Resultat:menu }
     
 #enquetes_main_edition:
 #    pattern:  /edition/{id}
@@ -51,7 +55,7 @@ enquetes_main_repondre:
     defaults: { _controller: EnquetesMainBundle:Repondre:repondre }
     requirements:
        id: \d+
-    
+  
 
 #    
 #enquetes_main_utilisateur_compte:

@@ -27,8 +27,13 @@ class ResultatController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $reponses = $em->getRepository('EnquetesMainBundle:Reponse')
-                    ->findByd($id);
+                    ->findByquestionQuestion($id);
             return $this->render('EnquetesMainBundle:Default:reponse.html.twig',
                 array('reponses'=>$reponses)); }
-  }   
+  }  
+  
+   public function menuAction() {
+        
+        return $this->render('EnquetesMainBundle:Default:menu.html.twig');
+    }
 }  
