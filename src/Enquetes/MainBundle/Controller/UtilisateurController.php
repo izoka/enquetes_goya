@@ -18,13 +18,13 @@ class UtilisateurController extends Controller {
          $token = $security->getToken();
          $user = $token->getUser();
          $id_user = $user->getUserId();
-      
-     $listetheme = $em->getRepository('EnquetesMainBundle:Theme')
+     $em = $this->getDoctrine()->getManager();
+     $listetheme = $em->getRepository('EnquetesMainBundle:Enquete')
                 ->getThemeByDesc();
      
       
         // appel au repository affichage enquete par utilisateur
-        $em = $this->getDoctrine()->getManager();
+     
         $enquete = $em->getRepository('EnquetesMainBundle:Enquete')
                 ->getEnqueteByUser($id_user);
         
