@@ -1,5 +1,21 @@
 {%extends "EnquetesMainBundle::layout.html.twig"%}
 
 {%block enquetes_n3 %}
-CONTENU
+    <div class="row show-grid">
+         <div class="col-md-5 well">
+             <form class="form-inline" role="form" method="post" {{ form_enctype(form) }}>
+                 <h4>Inscription</h4>
+                 <div id="margin-form" class="form-group">
+                  {{ form_widget(form) }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Enregistrer</button>
+              </form>
+
+         </div>
+    </div>
+{#<form method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" />
+      </form>#}
 {%endblock%}

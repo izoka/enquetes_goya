@@ -44,12 +44,10 @@ enquetes_main_menu:
     pattern: /menu
     defaults: { _controller: EnquetesMainBundle:Resultat:menu }
     
-#enquetes_main_edition:
-#    pattern:  /edition/{id}
-#    defaults: { _controller: EnquetesMainBundle:Edition:edition }
-#    requirements:
-#      id: \d+
-#      
+enquetes_main_edition_compte:
+    pattern:  /editioncompte
+    defaults: { _controller: EnquetesMainBundle:Creation:compte }
+      
 enquetes_main_repondre:
     pattern:  /repondre/{id}
     defaults: { _controller: EnquetesMainBundle:Repondre:repondre }

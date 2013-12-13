@@ -7,6 +7,7 @@ use Enquetes\MainBundle\Entity\Enquete;
 use Enquetes\MainBundle\Entity\Question;
 use Enquetes\MainBundle\Form\EnqueteType;
 use Enquetes\MainBundle\Form\QuestionType;
+use Enquetes\MainBundle\Form\UtilisateurType;
 use Enquetes\MainBundle\Form\FormHandler;
 
 class CreationController extends Controller {
@@ -64,6 +65,44 @@ class CreationController extends Controller {
             return $this->redirect($this->generateUrl('enquetes_main_accueil'));
         }
     }
+    
+         public function compteAction() {
+             
+         if ($this->get('security.context')->isGranted('ROLE_USER')) {
+         //récupère l'identifiant de l'utilisateur
+         $security = $this->get('security.context');
+         $token = $security->getToken();
+         $user = $token->getUser();
+         $id_user = $user->getUserId();
+         
+         // appel au repository affichage enquete par utilisateur
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('EnquetesMainBundle:Utilisateur')
+        ->find($id_user);
+        
+         $form = $this->createForm(new UtilisateurType(), $user);
+         $formHandler = new FormHandler($form, $this->get('request'), $em);
+
+
+            if ($formHandler->process()) {
+//             return $this->redirect
+//                ($this->generateUrl('enquetes_main_creation_step2',
+//                        array('id'=>$enquete->getEnqueteId() ) ) );
+            }
+        
+        
+        return $this->render('EnquetesMainBundle:Default:edition.html.twig',
+                array('form' => $form->createView()));
+    }
+    else
+    {
+       return $this->redirect ($this->generateUrl('enquetes_main_accueil'));
+    }
+             
+         }
+    
+    
+    
 
 //
 //    public function etape2Action($id)
