@@ -12,19 +12,45 @@
         {%endblock%}
     </head>
     <body>
-         {{render (controller("EnquetesMainBundle:Resultat:menu"))}}
+         {#{{render (controller("EnquetesMainBundle:Resultat:menu"))}}#}
         <header>
             <nav class="navbar navbar-default" role="navigation">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                {#<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                   <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
+                  <span class="icon-bar">gdsfgsd</span>
+                  <span class="icon-bar">gdfsgs</span>
+                  <span class="icon-bar">gdfgds</span>
+                </button>#}
                 <a class="navbar-brand" href="#">Site Enquêtes</a>
               </div>
+              <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                  <li>{{render (controller("EnquetesMainBundle:Resultat:menu"))}}</li>
+                </ul>
+                  <ul class="nav navbar-nav navbar-right">
+
+                      <li><a href="/logout">Deconnexion</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+      {#                {{resultat.title}}#}
+
+                      {#<a href="#">Link</a>#}
+                  </li>
+                  <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Votre compte <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
+                      <li><a href="/editioncompte">Modifier</a></li>
+                      <li><a href="#">Supprimer</a></li>
+                    </ul>
+                  </li>
+                  
+                </ul>
+                  
+                </div>
             </nav>
         </header>
 
