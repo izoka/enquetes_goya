@@ -17,12 +17,6 @@
             <nav class="navbar navbar-default" role="navigation">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
-                {#<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar">gdsfgsd</span>
-                  <span class="icon-bar">gdfsgs</span>
-                  <span class="icon-bar">gdfgds</span>
-                </button>#}
                 <a class="navbar-brand" href="#">Site Enquêtes</a>
               </div>
               <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
@@ -30,8 +24,8 @@
 
                   <li>{{render (controller("EnquetesMainBundle:Resultat:menu"))}}</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <div class="btn-group">
+                <ul class="nav navbar-nav">
+                    <li><a href='/utilisateur'>Mes enquêtes</a></li>
                  </ul>
                   <!-- ------------------------------------------------------------------------------------------------------->
 {#                  lien vers mon compte lorsque l'on est connexion#}
@@ -49,7 +43,7 @@
                           </button>
                           <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
                             <li><a href="/editioncompte">Modifier</a></li>
-                            <li><a href="#">Supprimer</a></li>
+                            <li><a href="/supprimer">Supprimer</a></li>
                           </ul>
                         </div>
                       </div>

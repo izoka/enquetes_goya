@@ -4,13 +4,24 @@
 
 {%block enquetes_n3 %}
 
-
+<div class="bs-example">
+      
+        <h2>Liste des enquêtes</h2>
+        <hr/>
+    </div> 
  
 
-
+    <table class='table table-striped'>
+        <tbody>
    {%for enquete in enquetes%}
-      </a>   <a href="{{path('enquetes_main_rechercherRep',{'id':enquete.enqueteid} )}}">  {{enquete.titre}} </a><br/>
-               {%endfor%}  
+            <tr>
+                <td>
+      <a href="{{path('enquetes_main_rechercherRep',{'id':enquete.enqueteid} )}}">  {{enquete.titre}} </a>
+      </td>
+      </tr>
+   {%endfor%}
+      </tbody>
+    </table>
  <script type="text/javascript">
        $("#form1").submit(function(){   
           
