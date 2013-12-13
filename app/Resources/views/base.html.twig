@@ -30,25 +30,38 @@
 
                   <li>{{render (controller("EnquetesMainBundle:Resultat:menu"))}}</li>
                 </ul>
-                  <ul class="nav navbar-nav navbar-right">
-
-                      <li><a href="/logout">Deconnexion</a></li>
-                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li>
-      {#                {{resultat.title}}#}
+                  <div class="btn-group">
+                 </ul>
+                  <!-- ------------------------------------------------------------------------------------------------------->
+{#                  lien vers mon compte lorsque l'on est connexion#}
+                  {# On n'affiche le lien « Ajouter un article » qu'aux auteurs
+                    (et admins, qui héritent du rôle auteur) #}
+                  {% if is_granted('ROLE_USER') %}
+                  <ul class="btn-group navbar-right" style="margin-bottom: 0;">
+                      <div class="btn-group navbar-right">
+                        <div class="btn-group">
+                          <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle btn btn-primary" data-toggle="dropdown">
 
-                      {#<a href="#">Link</a>#}
-                  </li>
-                  <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Votre compte <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
-                      <li><a href="/editioncompte">Modifier</a></li>
-                      <li><a href="#">Supprimer</a></li>
-                    </ul>
-                  </li>
+                              <a style="color: #FFF;" class="navbar-brand" href="#">Votre compte</a>
+                            <span class="caret"></span>
+
+                          </button>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
+                            <li><a href="/editioncompte">Modifier</a></li>
+                            <li><a href="#">Supprimer</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout">Deconnexion</a></li>
+                  </ul>
+                   {% endif %}
+                  {# … #}
+                  <!-- -----------------------------------------------Fin lien mon compte-------------------------------------------------------->
                   
-                </ul>
+                  
                   
                 </div>
             </nav>
