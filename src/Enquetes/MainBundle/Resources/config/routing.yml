@@ -3,9 +3,10 @@ enquetes_main_accueil:
     defaults: { _controller: EnquetesMainBundle:Accueil:index }
     
 enquetes_main_utilisateur:
-    pattern:  /utilisateur
-    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur }
-
+    pattern:  /utilisateur/{theme}
+    defaults: { _controller: EnquetesMainBundle:Utilisateur:utilisateur, theme:null}
+    requirements:
+      theme: \d*
     
 enquetes_main_creation:
     pattern:  /creation
