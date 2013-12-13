@@ -49,15 +49,13 @@ class Question
 
     
     /**
- * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestion", cascade={"persist", "remove"})
+     * @var ArrayCollection $reponse
+ * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestion")
  */
-    protected $reponse;
+public $reponse;
     
             
     
-    function __construct() {
- 
-    }
     
 
     /**
@@ -138,10 +136,17 @@ class Question
     {
         return $this->enqueteEnquete;
     }
-    public function __toString() {
-       return $this->libelle;
-    }
 
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reponse = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Add reponse
      *

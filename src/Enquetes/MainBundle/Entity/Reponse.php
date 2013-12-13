@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="reponse")
  * @ORM\Entity(repositoryClass="Enquetes\MainBundle\Entity\ReponseRepository")
- * @ORM\Entity
  */
 class Reponse
 {
@@ -32,7 +31,7 @@ class Reponse
     /**
      * @var string
      *
-     * @ORM\Column(name="uid", type="string", length=128, nullable=false)
+     * @ORM\Column(name="uid", type="string", length=128, nullable=true)
      */
     private $uid;
 
@@ -46,9 +45,11 @@ class Reponse
      */
     private $questionQuestion;
 
-  
+    function __construct() {
+        $this->uid = "d";
+    }
 
-
+        
     /**
      * Get reponseId
      *

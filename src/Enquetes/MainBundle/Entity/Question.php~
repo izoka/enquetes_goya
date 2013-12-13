@@ -49,15 +49,12 @@ class Question
 
     
     /**
- * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestion", cascade={"persist", "remove"})
+ * @ORM\OneToMany(targetEntity="Reponse",mappedBy="questionQuestion")
  */
     protected $reponse;
     
             
     
-    function __construct() {
- 
-    }
     
 
     /**
@@ -138,7 +135,7 @@ class Question
     {
         return $this->enqueteEnquete;
     }
-    public function __toString() {
-       return $this->libelle;
-    }
+
+
+
 }
