@@ -54,10 +54,9 @@
                         Trier par thème <span class="caret"></span>
                     </button>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
+                        {%for enquete in enquetes%}
+                            <li><a href="#">{{enquete.themeTheme.libelle}}</a></li>
+                        {%endfor%}
                     </ul>
 
                 </div>
