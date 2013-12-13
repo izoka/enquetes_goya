@@ -54,8 +54,8 @@
                         Trier par thème <span class="caret"></span>
                     </button>
                     <ul role="menu" class="dropdown-menu">
-                        {%for enquete in enquetes%}
-                            <li><a href="#">{{enquete.themeTheme.libelle}}</a></li>
+                        {%for theme in themes%}
+                            <li><a href="#">{{theme.libelle}}</a></li>
                         {%endfor%}
                     </ul>
 

@@ -21,6 +21,14 @@ class EnqueteRepository extends EntityRepository
         return $query->getResult();
     }
     
+    public function getThemeByDesc(){
+        $query = $this->getEntityManager()->createQuery(
+                'SELECT t FROM EnquetesMainBundle:Theme t ');
+        
+        return $query->getResult();
+        
+    }
+    
     public function getEnqueteByUser($user){
         
          $query = $this->getEntityManager()->createQuery(
