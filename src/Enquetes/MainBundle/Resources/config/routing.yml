@@ -55,7 +55,12 @@ enquetes_main_repondre:
     defaults: { _controller: EnquetesMainBundle:Repondre:repondre }
     requirements:
        id: \d+
-  
+
+enquetes_main_modifier:
+    pattern:  /modifier/{id}
+    defaults: { _controller: EnquetesMainBundle:Creation:modifier }
+    requirements:
+       id: \d+
 
 #    
 #enquetes_main_utilisateur_compte:

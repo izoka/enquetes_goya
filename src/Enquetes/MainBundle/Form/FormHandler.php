@@ -8,6 +8,12 @@ use Enquetes\MainBundle\Entity\Enquete;
 use Enquetes\MainBundle\Entity\Question;
 //use Lddt\MainBundle\Entity\Draw;
 
+
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+
 class FormHandler {
     protected $form;
     protected $request;
@@ -24,7 +30,6 @@ class FormHandler {
             $this->form->bind($this->request);
            if($this->form->isValid()) {
                
-               var_dump($this->form->getData());
                
                 $this->onSuccess($this->form->getData());
                 return true;
@@ -69,6 +74,36 @@ class FormHandler {
             $this->em->persist($question);
             $this->em->flush();
         }
+    }
+        
+        public function process3(){
+        if($this->request->getMethod()=="POST") {
+            $this->form->bind($this->request);
+           if($this->form->isValid()) {
+               
+               
+                $this->onSuccess3($this->form->getData());
+                return true;
+            }
+        }
+    }
+    
+    public function onSuccess3($obj) {
+        
+        
+         $enquete = $this->getDoctrine()->getManager()
+        ->getRepository("EnquetesMainBundle:Enquete")
+        ->find($obj->getEnqueteId());
+        
+        $questionList = $obj->getQuestion();
+        foreach ($questionList as $questionRow){
+            $question = new Question();
+            $question->setLibelle($questionRow->getLibelle());
+            $question->setEnqueteEnquete($enquete);
+            $question->setTypeTypeDeQuestion($questionRow->getTypeTypeDeQuestion());
+            $this->em->persist($question);
+            $this->em->flush();
+        }  
         
         
 //        $this->em->persist($obj);
