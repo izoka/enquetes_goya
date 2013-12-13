@@ -60,7 +60,9 @@ enquetes_main_modifier:
     defaults: { _controller: EnquetesMainBundle:Creation:modifier }
     requirements:
        id: \d+
-
+enquetes_main_supprime_compte:
+    pattern:  /supprimer
+    defaults: { _controller: EnquetesMainBundle:Creation:supCompte }
 #    
 #enquetes_main_utilisateur_compte:
 #    pattern:  /utilisateur_compte/{id}
