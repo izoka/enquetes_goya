@@ -31,16 +31,18 @@ class EnqueteType extends AbstractType
                          'property'=>'displayTheme',
                          'attr'=>array('class'=>'form-control')))
       ->add('Next', 'submit',
-                    array('attr'=>array('class'=>'btn btn-primary')));
+                    array('attr'=>array('class'=>'btn btn-primary')))
                 
-      $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
-          $form = $event->getForm();
+//      $builder->addEventListener(FormEvents::PRE_SET_DATA, function(FormEvent $event){
+//          $form = $event->getForm();
           
-            $form->add('question', 'collection', array('type' => new QuestionType(),
-                                              'allow_add'    => true,
-                                              'allow_delete' => true));     
-        });
-                
+      // enquetes_mainbundle_enquete_question_0_typeTypeDeQuestion_1
+      ->add('question', 'collection', array('type' => new QuestionType(),
+                                            'allow_add'    => true,
+                                            'allow_delete' => true
+          )) 
+//        });
+                ;
     }
     
     /**

@@ -24,13 +24,19 @@ class QuestionType extends AbstractType
                                         array('label'=>"Type de question",
                                               'class'=>'Enquetes\MainBundle\Entity\TypeDeQuestion',
                                               'property'=>'displayType',
-                                              'attr'=>array('class'=>'form-control'),
+                                              'attr'=>array('class'=>'form-control actionTypeQuestion'),
                                               'expanded' => true, 
                                               'multiple' => false     
                                                   ))
+                
+                
 //           ->add('reponse','text', array('label'=>"Type de question",
 //                                         'required'=>false, )) 
-                            
+                     
+//                ->add('typeTypeDeQuestion', 'collection', array('type' => new TypeDeQuestionType(),
+//                                              'allow_add'    => true,
+//                                              'allow_delete' => true)) 
+//        });
 //           ->add('typeTypeDeQuestion', 'collection', array('type'         => new TypeDeQuestionType(),
 //                                              'allow_add'    => true,
 //                                              'allow_delete' => true))        

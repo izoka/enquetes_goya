@@ -42,12 +42,14 @@ $(document).ready(function() {
   
   //Ajout de la div .form-group puis déplacement des input dans cette div
   $('<div />').attr({class:"col-xs-5"}).appendTo('.form-group');
-  var $divBrotherInput = $('div#enquetes_mainbundle_enquete > div > input').siblings('div');
-  var $divBrotherTextarea = $('div#enquetes_mainbundle_enquete > div > textarea').siblings('div');
-  var $divBrotherSelect = $('div#enquetes_mainbundle_enquete > div > select').siblings('div');
-  $("div#enquetes_mainbundle_enquete > div > textarea").appendTo($divBrotherTextarea);
-  $("div#enquetes_mainbundle_enquete > div > input").appendTo($divBrotherInput);
-  $("div#enquetes_mainbundle_enquete > div > select").appendTo($divBrotherSelect);
+  
+{#  var $divBrotherInput = $('div#enquetes_mainbundle_enquete > div > input').siblings('div');#}
+{#  var $divBrotherTextarea = $('div#enquetes_mainbundle_enquete > div > textarea').siblings('div');#}
+{#  var $divBrotherSelect = $('div#enquetes_mainbundle_enquete > div > select').siblings('div');#}
+  
+{#  $("div#enquetes_mainbundle_enquete > div > textarea").appendTo($divBrotherTextarea);#}
+{#  $("div#enquetes_mainbundle_enquete > div > input").appendTo($divBrotherInput);#}
+{#  $("div#enquetes_mainbundle_enquete > div > select").appendTo($divBrotherSelect);#}
 
   // On ajoute un lien pour ajouter une nouvelle catégorie
   var $lienAjout = $('<a href="#" id="ajout_categorie" class="btn">[+] Ajouter une question</a><hr/>');
@@ -73,9 +75,9 @@ $(document).ready(function() {
     });
   }
   
-  
-
-  {function ajouterCategorie($container) {
+ 
+  // La fonction qui ajoute un formulaire Categorie
+  function ajouterCategorie($container) {
     // Dans le contenu de l'attribut « data-prototype », on remplace :
     // - le texte "__name__label__" qu'il contient par le label du champ
     // - le texte "__name__" qu'il contient par le numéro du champ
@@ -90,7 +92,7 @@ $(document).ready(function() {
 
     // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
     index++;
-  }}
+  }
 
   // La fonction qui ajoute un lien de suppression d'une catégorie
   function ajouterLienSuppression($prototype) {
