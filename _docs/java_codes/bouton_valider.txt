@@ -1,0 +1,39 @@
+private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {                                               
+
+	StringBuilder lsbMessage = new StringBuilder();
+	lsbMessage.append("<html>");
+
+	if (this.jTextFieldPseudo.getText().trim().equals("")) {
+		lsbMessage.append("Pseudo obligatoire<br>");
+	} else {
+		lsbMessage.append("Pseudo OK<br>");
+	}
+
+	if (this.jTextFieldMDP.getText().trim().equals("")) {
+		lsbMessage.append("MDP obligatoire<br>");
+	} else {
+		lsbMessage.append("MDP OK<br>");
+	}
+
+	String lsAge = jTextFieldAge.getText();
+
+	if (lsAge.trim().equals("")) {
+		lsbMessage.append("Age obligatoire<br>");
+		//jLabelMessage.setText("Saisie obligatoire");
+	} else {
+		int liAge = Integer.valueOf(lsAge);
+		if (liAge < 0 || liAge > 125) {
+			lsbMessage.append("Age improbable<br>");
+		} else {
+			if (liAge >= 18) {
+				lsbMessage.append("Majeur<br>");
+			} else {
+				lsbMessage.append("Mineur<br>");
+			}
+		}
+	}
+	lsbMessage.append("</html>");
+	
+	jLabelMessage.setText(lsbMessage.toString());
+
+}  

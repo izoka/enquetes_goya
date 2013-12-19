@@ -1,0 +1,7 @@
+        // Les mois
+        // Tableau associatif des mois ou pas !!!
+        String[] tMois = {"Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"};
+        this.jComboBoxMois.addItem("<<mois>>");
+        for (int i = 0; i < tMois.length; i++) {
+            this.jComboBoxMois.addItem(tMois[i]);
+        }

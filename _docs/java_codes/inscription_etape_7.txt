@@ -1,0 +1,82 @@
+    private void jButtonValiderActionPerformed(java.awt.event.ActionEvent evt) {                                               
+//        jLabelMessage.setText("Votre âge est de " + jTextFieldAge.getText());
+
+        boolean lbOK = true;
+        StringBuilder lsbMessage = new StringBuilder();
+        lsbMessage.append("<html>");
+
+        if (this.jTextFieldPseudo.getText().trim().equals("")) {
+            lsbMessage.append("Pseudo obligatoire<br>");
+            lbOK = false;
+        } else {
+            // * 1,n
+            // + 0,n
+            // Commence par des lettres
+            // et se termine par eventuellement des chiffres
+            String lsMotifPseudo = "^[A-Za-z-]+[0-9]*$";
+            if (jTextFieldPseudo.getText().matches(lsMotifPseudo)) {
+                lsbMessage.append("Pseudo OK<br>");
+            } else {
+                lsbMessage.append("Pseudo KO<br>");
+                lbOK = false;
+            }
+        }
+
+        if (this.jTextFieldMDP.getText().trim().equals("")) {
+            lsbMessage.append("MDP obligatoire<br>");
+            lbOK = false;
+        } else {
+            // --- Le mot de passe
+            // String lsMotifMDP = "([A-Z]{1,})|([a-z]{1,})|([0-9]{1,})";
+            // Entre 6 et 10 caractères
+            // Au moins 1 lettre majuscule, 1 lettre minuscule, 1 chiffre
+            String lsMotifMDP = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$";
+            if (jTextFieldMDP.getText().matches(lsMotifMDP)) {
+                lsbMessage.append("MDP OK<br>");
+            } else {
+                lsbMessage.append("MDP KO<br>");
+                lbOK = false;
+            }
+        }
+
+        String lsAge = jTextFieldAge.getText();
+
+        if (lsAge.trim().equals("")) {
+            lsbMessage.append("Age obligatoire<br>");
+            lbOK = false;
+        } else {
+            int liAge = Integer.valueOf(lsAge);
+            if (liAge < 0 || liAge > 125) {
+                lsbMessage.append("Age improbable<br>");
+                lbOK = false;
+            } else {
+                if (liAge >= 18) {
+                    lsbMessage.append("Majeur<br>");
+                } else {
+                    lsbMessage.append("Mineur<br>");
+                }
+            }
+        }
+
+        lsbMessage.append(jComboBoxJours.getSelectedItem().toString());
+        lsbMessage.append(" ");
+        lsbMessage.append(jComboBoxMois.getSelectedItem().toString());
+        lsbMessage.append(" ");
+        lsbMessage.append(jComboBoxAnnees.getSelectedItem().toString());
+
+        lsbMessage.append("</html>");
+        jLabelMessage.setText(lsbMessage.toString());
+
+//        System.out.println(lbOK);
+        if (lbOK) {
+            int noInscrit = 1;
+            String lsPseudo = this.jTextFieldPseudo.getText();
+            String lsMDP = this.jTextFieldMDP.getText();
+            int liAge = Integer.valueOf(this.jTextFieldAge.getText());
+            String lsDateInscription = jComboBoxJours.getSelectedItem() + " " + jComboBoxMois.getSelectedItem() + " " + jComboBoxAnnees.getSelectedItem();
+            Inscrit inscrit = new Inscrit(noInscrit, lsPseudo, lsMDP, liAge, lsDateInscription);
+
+            jLabelMessage.setText(inscrit.toString());
+        }
+
+    }   
